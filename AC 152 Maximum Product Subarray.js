@@ -13,14 +13,13 @@
     }
     tmax = Math.max(nums[i], nums[i] * tmax)
     tmin = Math.min(nums[i], nums[i] * tmin)
-    console.log(tmax, tmin)
     max = Math.max(max, tmax)
    }
    return max
  }
 
 
-/* 不适用与含有0的情况，且时间复杂度太高 
+/* 不适用于含有0的情况，且时间复杂度太高 
 var maxProduct = function(nums) {
   var products = [1], max = -Infinity
   for (i = 0; i < nums.length; i++) {
@@ -36,11 +35,15 @@ var maxProduct = function(nums) {
   return max
 }; */
 
+/* 
+  
+*/
+
 var assert = require('assert')
-// assert.equal(maxProduct([2,3,-2,4]), 6)
-// assert.equal(maxProduct([-2]), -2)
-// assert.equal(maxProduct([-2, -3]), 6)
-// assert.equal(maxProduct([-2, 1, -3]), 6)
-// assert.equal(maxProduct([0,2]), 2)
-// assert.equal(maxProduct([-2,0,2,3]), 6)
+assert.equal(maxProduct([2,3,-2,4]), 6)
+assert.equal(maxProduct([-2]), -2)
+assert.equal(maxProduct([-2, -3]), 6)
+assert.equal(maxProduct([-2, 1, -3]), 6)
+assert.equal(maxProduct([0,2]), 2)
+assert.equal(maxProduct([-2,0,2,3]), 6)
 assert.equal(maxProduct([-1,-2,-9,-6]), 108)
