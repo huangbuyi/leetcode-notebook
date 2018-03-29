@@ -50,6 +50,11 @@ MyStack.prototype.empty = function() {
 * var param_4 = obj.empty()
 */
 
+/* 
+本题使用队列模拟栈，与 232 使用栈模拟队列不同，栈弹出再插入可以改变栈的顺序，但弹出再输入队列顺序还是一样的。
+本题思路，先插入元素，然后把队首元素插入队尾，直到插入的元素是首元素。于是，每次插入复杂度都是O(n)。
+*/
+
 var assert = require('assert')
 var stack = new MyStack()
 assert.equal(stack.empty(), true)

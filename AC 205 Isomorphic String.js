@@ -20,7 +20,23 @@ var isIsomorphic = function(s, t) {
   }
   return s.length === t.length
 };
-
+/* 
+我的解法，使用两个哈希表保存保存 S 到 T 的映射和 T 到 S 的映射。如果存在字符不符合映射，则返回 false。
+其它解法：
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        int m1[256] = {0}, m2[256] = {0}, n = s.size();
+        for (int i = 0; i < n; ++i) {
+            if (m1[s[i]] != m2[t[i]]) return false;
+            m1[s[i]] = i + 1;
+            m2[t[i]] = i + 1;
+        }
+        return true;
+    }
+};
+同样是两个哈希表，不同的是它们映射同一个值 a -> 3，b -> 3 来表示它们是关联的映射。
+*/
 var assert = require('assert')
 
 assert.equal(isIsomorphic('a', 'b'), true)
