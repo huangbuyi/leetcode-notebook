@@ -15,7 +15,7 @@ var readBinaryWatch = function(num) {
     led[count] = led[count] || []
     led[count].push(i)
   }
-  console.log(led)
+  
 };
 
 readBinaryWatch(5)
