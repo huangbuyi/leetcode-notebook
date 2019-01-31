@@ -8,15 +8,15 @@
  * @param {number[]} target
  * @return {boolean}
  */
-var escapeGhosts = function(ghosts, target) {
-  var move = Math.abs(target[0]) + Math.abs(target[1])
-  
-  for (var i = 0; i < ghosts.length; i++) {
-      var m = Math.abs(ghosts[i][0] - target[0]) + Math.abs(ghosts[i][1] - target[1])
-      if (m <= move) {
-          return false
-      }
-  }
-  
-  return true
+var escapeGhosts = function (ghosts, target) {
+    var move = Math.abs(target[0]) + Math.abs(target[1])
+
+    for (var i = 0; i < ghosts.length; i++) {
+        var m = Math.abs(ghosts[i][0] - target[0]) + Math.abs(ghosts[i][1] - target[1])
+        if (m <= move) {
+            return false
+        }
+    }
+
+    return true
 };
