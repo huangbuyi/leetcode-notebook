@@ -2,7 +2,7 @@
  * @param {number} n
  * @return {number}
  */
-var countNumbersWithUniqueDigits = function(n) {
+var countNumbersWithUniqueDigits = function (n) {
   var res = 1, n = Math.min(n, 10), counts = 9
 
   for (var i = 0; i < n; i++) {

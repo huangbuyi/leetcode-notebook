@@ -8,14 +8,14 @@
  * @param {number[]} nums
  * @return {number}
  */
-var wiggleMaxLength = function(nums) {
+var wiggleMaxLength = function (nums) {
   var res = Math.min(1, nums.length), last
   for (var i = 1; i < nums.length; i++) {
-      var t = nums[i] - nums[i - 1]
-      if (t !== 0) {
-          if (last === undefined || t * last < 0) res++
-          last = t
-      }
+    var t = nums[i] - nums[i - 1]
+    if (t !== 0) {
+      if (last === undefined || t * last < 0) res++
+      last = t
+    }
   }
   return res
 };

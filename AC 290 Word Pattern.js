@@ -3,19 +3,19 @@
  * @param {string} str
  * @return {boolean}
  */
-var wordPattern = function(pattern, str) {
-    var pMap = {}, sMap = {}, strArr = str.match(/\S+/g)
-    for (var i = 0; i < pattern.length; i++) {
-      var p = pattern[i]
-      var s = strArr[i]
-      if (pMap[p] !== sMap[s]) {
-        return false
-      }
-      sMap[s] = i
-      pMap[p] = i
+var wordPattern = function (pattern, str) {
+  var pMap = {}, sMap = {}, strArr = str.match(/\S+/g)
+  for (var i = 0; i < pattern.length; i++) {
+    var p = pattern[i]
+    var s = strArr[i]
+    if (pMap[p] !== sMap[s]) {
+      return false
     }
+    sMap[s] = i
+    pMap[p] = i
+  }
 
-    return pattern.length === strArr.length
+  return pattern.length === strArr.length
 };
 
 var assert = require('assert')

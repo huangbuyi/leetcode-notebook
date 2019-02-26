@@ -38,14 +38,14 @@ var sumSubseqWidths = function(A) {
  * @param {number[]} A
  * @return {number}
  */
-var sumSubseqWidths = function(A) {
+var sumSubseqWidths = function (A) {
   var res = 0, count = 1, mode = 1e9 + 7
-  A = A.sort((a, b) => a - b )
-  
+  A = A.sort((a, b) => a - b)
+
   for (var i = 0; i < A.length; i++) {
-      res = (res + count * A[i] - count * A[A.length - 1 - i]) % mode
-      count = (count << 1) % mode
+    res = (res + count * A[i] - count * A[A.length - 1 - i]) % mode
+    count = (count << 1) % mode
   }
-  
+
   return res
 };

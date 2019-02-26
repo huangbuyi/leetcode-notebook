@@ -2,7 +2,7 @@
  * @param {number[]} heights
  * @return {number}
  */
-var largestRectangleArea = function(heights) {
+var largestRectangleArea = function (heights) {
   // lefts 保存从小到大的高度和开始位置，存储在最后是最大高度
   var lefts = [], max = 0, area, last
   // 最后一次循环计算面积
@@ -20,7 +20,7 @@ var largestRectangleArea = function(heights) {
   return max
 };
 
-/* 
+/*
 lefts 保存从小到大的高度和开始位置，存储在最后是最大高度，
 当后面柱子高度小于前面柱子，柱子高度记为较小高度，起始位置为前柱子起始位置。
 */

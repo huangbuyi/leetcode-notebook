@@ -16,25 +16,25 @@
  * @param {TreeNode} root2
  * @return {boolean}
  */
-var leafSimilar = function(root1, root2) {
+var leafSimilar = function (root1, root2) {
   var sq1 = [], sq2 = []
   getSequence(root1, sq1)
   getSequence(root2, sq2)
-  
+
   if (sq1.length !== sq2.length) {
-      return false
+    return false
   }
-  
+
   for (var i = 0; i < sq1.length; i++) {
-      if (sq1[i] !== sq2[i]) {
-          return false
-      }
+    if (sq1[i] !== sq2[i]) {
+      return false
+    }
   }
-  
+
   return true
 };
 
-var getSequence = function(node, seq) {
+var getSequence = function (node, seq) {
   if (!node) return
   if (!node.left && !node.right) seq.push(node.val)
   getSequence(node.left, seq)

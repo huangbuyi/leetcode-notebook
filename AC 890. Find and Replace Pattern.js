@@ -9,17 +9,17 @@
  * @param {string} pattern
  * @return {string[]}
  */
-var findAndReplacePattern = function(words, pattern) {
+var findAndReplacePattern = function (words, pattern) {
   return words.filter(w => isMatch(w, pattern))
 };
 
-var isMatch = function(a, b) {
+var isMatch = function (a, b) {
   if (a.length !== b.length) return false
   var map1 = {}, map2 = {}
   for (var i = 0; i < a.length; i++) {
-      if (!map1[a[i]]) map1[a[i]] = b[i]
-      if (!map2[b[i]]) map2[b[i]] = a[i]
-      if (map1[a[i]] !== b[i] || map2[b[i]] !== a[i]) return false
+    if (!map1[a[i]]) map1[a[i]] = b[i]
+    if (!map2[b[i]]) map2[b[i]] = a[i]
+    if (map1[a[i]] !== b[i] || map2[b[i]] !== a[i]) return false
   }
   return true
 }

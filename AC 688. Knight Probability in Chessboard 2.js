@@ -13,31 +13,31 @@ dp[i][j]，由 k - 1 的八个可移动到的位置的概率决定
  */
 var moves = [[-1, -2], [-2, -1], [1, -2], [2, -1], [-1, 2], [-2, 1], [1, 2], [2, 1]]
 
-var knightProbability = function(N, K, r, c) {
-    var dp = createArray(N, 1)
-    
-    for (var k = 0; k < K; k++) {
-        var dp0 = createArray(N, 0)
-        for (var x = 0; x < N; x++) {
-            for (var y = 0; y < N; y++) {
-                for (var m = 0; m < moves.length; m++) {
-                    var x0 = x + moves[m][0], y0 = y + moves[m][1]
-                    if (x0 >= 0 && y0 >= 0 && x0 < N && y0 < N) dp0[x][y] += dp[x0][y0]
-                }
-                dp0[x][y] /= 8
-            }
+var knightProbability = function (N, K, r, c) {
+  var dp = createArray(N, 1)
+
+  for (var k = 0; k < K; k++) {
+    var dp0 = createArray(N, 0)
+    for (var x = 0; x < N; x++) {
+      for (var y = 0; y < N; y++) {
+        for (var m = 0; m < moves.length; m++) {
+          var x0 = x + moves[m][0], y0 = y + moves[m][1]
+          if (x0 >= 0 && y0 >= 0 && x0 < N && y0 < N) dp0[x][y] += dp[x0][y0]
         }
-        dp = dp0
+        dp0[x][y] /= 8
+      }
     }
-    
-    return dp[r][c]
+    dp = dp0
+  }
+
+  return dp[r][c]
 };
-    
-var createArray = function(N, val) {
-    var res = new Array(N)
-    for (var i = 0; i < N; i++) {
-        res[i] = new Array(N).fill(val)
-    }
-    return res
+
+var createArray = function (N, val) {
+  var res = new Array(N)
+  for (var i = 0; i < N; i++) {
+    res[i] = new Array(N).fill(val)
+  }
+  return res
 }
 

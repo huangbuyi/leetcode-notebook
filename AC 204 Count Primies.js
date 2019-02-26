@@ -4,7 +4,7 @@
  */
 
 
-var countPrimes = function(n) {
+var countPrimes = function (n) {
   var noPrimes = new Array(n), count = 0
   for (var i = 2; i < n; i++) {
     if (noPrimes[i] === undefined) {
@@ -35,7 +35,7 @@ assert.equal(countPrimes(100), 25)
 assert.equal(countPrimes(1024), 172)
 
 
-/* 
+/*
 超时
 var countPrimes = function(n) {
   var primes = [2]
@@ -52,7 +52,7 @@ var countPrimes = function(n) {
       }
   }
   return n < 3 ? 0 : primes.length
-}; 
+};
 
 超内存
 var countPrimes = function(n) {

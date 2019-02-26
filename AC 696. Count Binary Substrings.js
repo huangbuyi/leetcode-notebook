@@ -8,20 +8,20 @@
  * @param {string} s
  * @return {number}
  */
-var countBinarySubstrings = function(s) {
+var countBinarySubstrings = function (s) {
   var i = 0, count = 0, curr = 0, last = 0, bit
-  
+
   for (var i = 0; i < s.length; i++) {
-      if (s[i] !== bit) {
-          last = curr
-          curr = 0
-          bit = s[i]
-      }
-      curr++
-      if (curr <= last) {
-          count++
-      }
+    if (s[i] !== bit) {
+      last = curr
+      curr = 0
+      bit = s[i]
+    }
+    curr++
+    if (curr <= last) {
+      count++
+    }
   }
-  
+
   return count
 };

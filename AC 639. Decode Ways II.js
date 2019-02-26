@@ -24,39 +24,39 @@ dp[k] = Adp[k - 1] + Bdp[k - 2]
  * @param {string} s
  * @return {number}
  */
-var numDecodings = function(s) {
+var numDecodings = function (s) {
   if (s[0] === '0') return 0
   var dp = new Array(s.length + 1)
   dp[0] = 1
   dp[1] = s[0] === '*' ? 9 : 1
-  
+
   for (var i = 2; i <= s.length; i++) {
-      var total = 0
-      if (s[i - 1] === '*') {
-          total += 9 * dp[i - 1]
-      } else if (s[i - 1] !== '0') {
-          total += dp[i - 1]
+    var total = 0
+    if (s[i - 1] === '*') {
+      total += 9 * dp[i - 1]
+    } else if (s[i - 1] !== '0') {
+      total += dp[i - 1]
+    }
+
+    if (s[i - 2] === '*' && s[i - 1] === '*') {
+      total += 15 * dp[i - 2]
+    } else if (s[i - 2] === '*' && s[i - 1] <= 6) {
+      total += 2 * dp[i - 2]
+    } else if (s[i - 2] === '*') {
+      total += dp[i - 2]
+    } else if (s[i - 2] === '1' && s[i - 1] === '*') {
+      total += 9 * dp[i - 2]
+    } else if (s[i - 2] === '2' && s[i - 1] === '*') {
+      total += 6 * dp[i - 2]
+    } else {
+      var num = Number(s[i - 2] + s[i - 1])
+      if (num >= 10 && num <= 26) {
+        total += dp[i - 2]
       }
-      
-      if (s[i - 2] === '*' && s[i - 1] === '*') {
-          total += 15 * dp[i - 2]
-      } else if (s[i - 2] === '*' && s[i - 1] <= 6 ) {
-          total += 2 * dp[i - 2]
-      } else if (s[i - 2] === '*') {
-          total += dp[i - 2]
-      } else if (s[i - 2] === '1' && s[i - 1] === '*') {
-          total += 9 * dp[i - 2]
-      } else if (s[i - 2] === '2' && s[i - 1] === '*') {
-          total += 6 * dp[i - 2]
-      } else {
-          var num = Number(s[i - 2] + s[i - 1])
-          if (num >= 10 && num <= 26) {
-              total += dp[i - 2]
-          }
-      }
-      
-      dp[i] = total % (1e9 + 7)
+    }
+
+    dp[i] = total % (1e9 + 7)
   }
-  
+
   return dp[s.length]
 };

@@ -15,35 +15,35 @@
  * @param {number} K
  * @return {number}
  */
-var findCheapestPrice = function(n, flights, src, dst, K) {
+var findCheapestPrice = function (n, flights, src, dst, K) {
   var cities = new Array(n), dp = new Array(n)
   dp[dst] = 0
-  
+
   for (var i = 0; i < n; i++) {
-      dp[i] = new Array(K + 1)
+    dp[i] = new Array(K + 1)
   }
-  
+
   for (var i = 0; i < flights.length; i++) {
-      var s = flights[i][0]
-      if (!cities[s]) cities[s] = []
-      cities[s].push(flights[i])
+    var s = flights[i][0]
+    if (!cities[s]) cities[s] = []
+    cities[s].push(flights[i])
   }
-  
-  var dfs = function(c, k) {
-      if (c === dst) return 0
-      if (k < 0) return Infinity
-      if (dp[c][k] >= 0) return dp[c][k]
-      
-      var min = Infinity
-      if (cities[c]) {
-          for (var i = 0; i < cities[c].length; i++) {
-              min = Math.min(min, cities[c][i][2] + dfs(cities[c][i][1], k - 1))
-          }
+
+  var dfs = function (c, k) {
+    if (c === dst) return 0
+    if (k < 0) return Infinity
+    if (dp[c][k] >= 0) return dp[c][k]
+
+    var min = Infinity
+    if (cities[c]) {
+      for (var i = 0; i < cities[c].length; i++) {
+        min = Math.min(min, cities[c][i][2] + dfs(cities[c][i][1], k - 1))
       }
-      
-      return dp[c][k] = min
+    }
+
+    return dp[c][k] = min
   }
-  
+
   var cost = dfs(src, K)
   return cost < Infinity ? cost : -1
 };

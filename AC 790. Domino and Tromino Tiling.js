@@ -21,16 +21,16 @@ dp[n] = 2 * dp[n - 1] + dp[n - 3]
  * @param {number} N
  * @return {number}
  */
-var numTilings = function(N) {
+var numTilings = function (N) {
   var dp = new Array(N), sum = 1
   dp[0] = 1
   dp[1] = 2
   dp[2] = 5
-  
+
   for (var i = 3; i < N; i++) {
-      sum += dp[i - 3] % (1e9 + 7)
-      dp[i] = (dp[i - 1] + dp[i - 2] + 2 * sum) % (1e9 + 7)
+    sum += dp[i - 3] % (1e9 + 7)
+    dp[i] = (dp[i - 1] + dp[i - 2] + 2 * sum) % (1e9 + 7)
   }
-  
+
   return dp[N - 1]
 };

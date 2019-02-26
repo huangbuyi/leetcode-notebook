@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-var productExceptSelf = function(nums) {
+var productExceptSelf = function (nums) {
   var left = 1, right = 1, res = new Array(nums.length)
   for (var i = 0; i < nums.length; i++) {
     res[i] = left
@@ -23,6 +23,6 @@ var productExceptSelf = function(nums) {
 
 var assert = require('assert')
 assert.deepStrictEqual(productExceptSelf([1]), [1])
-assert.deepStrictEqual(productExceptSelf([2,2,2]), [4,4,4])
-assert.deepStrictEqual(productExceptSelf([1,2]), [2,1])
-assert.deepStrictEqual(productExceptSelf([1,2,3,4]), [24,12,8,6])
+assert.deepStrictEqual(productExceptSelf([2, 2, 2]), [4, 4, 4])
+assert.deepStrictEqual(productExceptSelf([1, 2]), [2, 1])
+assert.deepStrictEqual(productExceptSelf([1, 2, 3, 4]), [24, 12, 8, 6])

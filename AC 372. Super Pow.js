@@ -3,7 +3,7 @@
  * @param {number[]} b
  * @return {number}
  */
-var superPow = function(a, b) {
+var superPow = function (a, b) {
   var res = 1, base = 1337
 
   function powmod(x, n) {
@@ -36,8 +36,8 @@ var assert = require('assert')
 assert.equal(superPow(2, [0]), 1)
 assert.equal(superPow(2, [1]), 2)
 assert.equal(superPow(2, [3]), 8)
-assert.equal(superPow(2, [1,0]), 1024)
-assert.equal(superPow(2, [1,1]), 2048 - 1337)
-assert.equal(superPow(2, [1,6]), 65536 % 1337)
-assert.equal(superPow(1337, [1,2,3]), 0)
+assert.equal(superPow(2, [1, 0]), 1024)
+assert.equal(superPow(2, [1, 1]), 2048 - 1337)
+assert.equal(superPow(2, [1, 6]), 65536 % 1337)
+assert.equal(superPow(1337, [1, 2, 3]), 0)
 assert.equal(superPow(1338, [1]), 1)

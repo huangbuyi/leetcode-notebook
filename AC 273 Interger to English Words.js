@@ -2,13 +2,13 @@
  * @param {number} num
  * @return {string}
  */
-var numberToWords = function(num) {
+var numberToWords = function (num) {
   var words = []
   var format = function (num) {
     var singles = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'],
-        decades = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'],
-        tens = ['Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'],
-        words = []
+      decades = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'],
+      tens = ['Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'],
+      words = []
 
     if (num >= 100) {
       words.push(singles[num / 100 >> 0], 'Hundred')
@@ -49,7 +49,7 @@ var numberToWords = function(num) {
   if (num > 0) {
     words = words.concat(format(num))
   }
-  
+
   return words.join(' ') || 'Zero'
 };
 

@@ -14,22 +14,22 @@
  * @param {number[]} ratings
  * @return {number}
  */
-var candy = function(ratings) {
+var candy = function (ratings) {
   var candy = new Array(ratings.length).fill(1), res = 0
-  
+
   for (var i = 1; i < ratings.length; i++) {
-      if (ratings[i] > ratings[i - 1]) {
-          candy[i] = candy[i - 1] + 1
-      }
+    if (ratings[i] > ratings[i - 1]) {
+      candy[i] = candy[i - 1] + 1
+    }
   }
-  
+
   for (var i = ratings.length - 2; i >= 0; i--) {
-      if (ratings[i] > ratings[i + 1]) {
-          candy[i] = Math.max(candy[i], candy[i + 1] + 1)
-      }
+    if (ratings[i] > ratings[i + 1]) {
+      candy[i] = Math.max(candy[i], candy[i + 1] + 1)
+    }
   }
-  
-  return candy.reduce(function(sum, item) {
-      return sum + item
+
+  return candy.reduce(function (sum, item) {
+    return sum + item
   }, 0)
 };

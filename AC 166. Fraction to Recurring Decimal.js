@@ -8,7 +8,7 @@
  * @param {number} denominator
  * @return {string}
  */
-var fractionToDecimal = function(numerator, denominator) {
+var fractionToDecimal = function (numerator, denominator) {
   if (denominator === 0) return "NaN"
   var sign = numerator / denominator < 0 ? '-' : ''
   numerator = Math.abs(numerator)
@@ -17,14 +17,14 @@ var fractionToDecimal = function(numerator, denominator) {
   var map = {}
   var res = Math.floor(numerator / denominator).toString()
   if (num !== 0) res += '.'
-  
+
   while (!map[num] && num !== 0) {
-      map[num] = res.length
-      num = num * 10
-      res += Math.floor(num / denominator)
-      if (num >= denominator) num %= denominator
+    map[num] = res.length
+    num = num * 10
+    res += Math.floor(num / denominator)
+    if (num >= denominator) num %= denominator
   }
-  
+
   if (num !== 0) res = res.substring(0, map[num]) + '(' + res.substring(map[num]) + ')'
   return sign + res
 };

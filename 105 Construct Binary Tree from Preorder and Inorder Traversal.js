@@ -10,11 +10,11 @@
  * @param {number[]} inorder
  * @return {TreeNode}
  */
-var buildTree = function(preorder, inorder) {
-    var i, j
-    for (i = 0, j = 0; i < preorder.length; i++) {
-        if (preorder[i] !== inorder[j]) {
-            
-        }
+var buildTree = function (preorder, inorder) {
+  var i, j
+  for (i = 0, j = 0; i < preorder.length; i++) {
+    if (preorder[i] !== inorder[j]) {
+
     }
+  }
 };

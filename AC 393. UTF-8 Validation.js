@@ -2,7 +2,7 @@
  * @param {number[]} data
  * @return {boolean}
  */
-var validUtf8 = function(data) {
+var validUtf8 = function (data) {
   var i = 0, j = 0
   while (i < data.length) {
     var c = data[i]
@@ -12,7 +12,7 @@ var validUtf8 = function(data) {
       if (--j < 0) {
         return false
       }
-    } else if (j === 0 && c  < 224) {
+    } else if (j === 0 && c < 224) {
       j = 1
     } else if (j === 0 && c < 240) {
       j = 2
@@ -27,7 +27,7 @@ var validUtf8 = function(data) {
 };
 
 var assert = require('assert')
-assert.equal(validUtf8([197,130,1]), true)
+assert.equal(validUtf8([197, 130, 1]), true)
 assert.equal(validUtf8([235, 140, 4]), false)
 assert.equal(validUtf8([1]), true)
 assert.equal(validUtf8([128]), false)

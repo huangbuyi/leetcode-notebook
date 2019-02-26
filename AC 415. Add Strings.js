@@ -3,7 +3,7 @@
  * @param {string} num2
  * @return {string}
  */
-var addStrings = function(num1, num2) {
+var addStrings = function (num1, num2) {
   var res = '', car = 0, len = Math.max(num1.length, num2.length)
   for (var i = 1; i <= len; i++) {
     var n = Number(num1[num1.length - i] || 0) + Number(num2[num2.length - i] || 0) + car

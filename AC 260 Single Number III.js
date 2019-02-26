@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-var singleNumber = function(nums) {
+var singleNumber = function (nums) {
   var diff = 0, res = [0, 0]
   for (var i = 0; i < nums.length; i++) {
     diff ^= nums[i]
@@ -14,7 +14,7 @@ var singleNumber = function(nums) {
   return res
 };
 
-/* 
+/*
 没想出来，看了答案。解题思路是进行两次异或遍历：
 第一次，得到的结果是两个 Single Number 的异或，因为这两个值必然是不同的，
 所以它们的异或结果的二进制值至少有一位为 1，找其中的一位（代码 diff &= -diiff 去最右边的一位 1）。例如：

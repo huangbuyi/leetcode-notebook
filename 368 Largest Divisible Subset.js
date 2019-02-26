@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-var largestDivisibleSubset = function(nums) {
+var largestDivisibleSubset = function (nums) {
   var hash = {}, max = 0
   nums.sort(function (a, b) {
     return a - b
@@ -18,4 +18,4 @@ var largestDivisibleSubset = function(nums) {
   }
 };
 
-largestDivisibleSubset([1,2,3])
+largestDivisibleSubset([1, 2, 3])

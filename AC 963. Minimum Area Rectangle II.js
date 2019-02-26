@@ -9,32 +9,32 @@
  * @param {number[][]} points
  * @return {number}
  */
-var minAreaFreeRect = function(points) {
+var minAreaFreeRect = function (points) {
   var map = {}, minS = Infinity
   for (var i = 0; i < points.length; i++) {
-      var x = points[i][0], y = points[i][1]
-      if (!map[x]) {
-          map[x] = {}
-      }
-      map[x][y] = true
+    var x = points[i][0], y = points[i][1]
+    if (!map[x]) {
+      map[x] = {}
+    }
+    map[x][y] = true
   }
-  
+
   for (var i = 0; i < points.length - 3; i++) {
-      for (var j = i + 1; j < points.length - 2; j++) {
-          for (var k = j + 1; k < points.length - 1; k++) {
-              var x1 = points[i][0], y1 = points[i][1]
-              var x2 = points[j][0], y2 = points[j][1]
-              var x3 = points[k][0], y3 = points[k][1]
-              // L1 是 (x1, y1) 对面的边
-              var L1 = (x2 - x3) * (x2 - x3) + (y2 - y3) * (y2 - y3)
-              var L2 = (x1 - x3) * (x1 - x3) + (y1 - y3) * (y1 - y3)
-              var L3 = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)
-              if (L1 === L2 + L3 && map[x2 + x3 - x1] && map[x2 + x3 - x1][y2 + y3 - y1]) minS = Math.min(minS, L2 * L3)
-              if (L2 === L1 + L3 && map[x1 + x3 - x2] && map[x1 + x3 - x2][y1 + y3 - y2]) minS = Math.min(minS, L1 * L3)
-              if (L3 === L1 + L2 && map[x1 + x2 - x3] && map[x1 + x2 - x3][y1 + y2 - y3]) minS = Math.min(minS, L1 * L2)
-          }
+    for (var j = i + 1; j < points.length - 2; j++) {
+      for (var k = j + 1; k < points.length - 1; k++) {
+        var x1 = points[i][0], y1 = points[i][1]
+        var x2 = points[j][0], y2 = points[j][1]
+        var x3 = points[k][0], y3 = points[k][1]
+        // L1 是 (x1, y1) 对面的边
+        var L1 = (x2 - x3) * (x2 - x3) + (y2 - y3) * (y2 - y3)
+        var L2 = (x1 - x3) * (x1 - x3) + (y1 - y3) * (y1 - y3)
+        var L3 = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)
+        if (L1 === L2 + L3 && map[x2 + x3 - x1] && map[x2 + x3 - x1][y2 + y3 - y1]) minS = Math.min(minS, L2 * L3)
+        if (L2 === L1 + L3 && map[x1 + x3 - x2] && map[x1 + x3 - x2][y1 + y3 - y2]) minS = Math.min(minS, L1 * L3)
+        if (L3 === L1 + L2 && map[x1 + x2 - x3] && map[x1 + x2 - x3][y1 + y2 - y3]) minS = Math.min(minS, L1 * L2)
       }
+    }
   }
-  
+
   return minS < Infinity ? Math.sqrt(minS) : 0
 };

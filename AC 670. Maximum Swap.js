@@ -7,24 +7,24 @@
  * @param {number} num
  * @return {number}
  */
-var maximumSwap = function(num) {
+var maximumSwap = function (num) {
   var nums = num.toString().split('')
-  
+
   for (var i = 0; i < nums.length; i++) {
-      var max = 0, maxPos
-      for (var j = i + 1; j < nums.length; j++) {
-          if (nums[j] >= max) {
-              max = nums[j]
-              maxPos = j
-          }
+    var max = 0, maxPos
+    for (var j = i + 1; j < nums.length; j++) {
+      if (nums[j] >= max) {
+        max = nums[j]
+        maxPos = j
       }
-      if (nums[i] < max) {
-          var t = nums[i]
-          nums[i] = max
-          nums[maxPos] = t
-          break
-      }
+    }
+    if (nums[i] < max) {
+      var t = nums[i]
+      nums[i] = max
+      nums[maxPos] = t
+      break
+    }
   }
-  
+
   return Number(nums.join(''))
 };

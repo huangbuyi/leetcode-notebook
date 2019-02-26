@@ -9,17 +9,17 @@
  * @param {number[]} nums2
  * @return {number[]}
  */
-var nextGreaterElement = function(nums1, nums2) {
+var nextGreaterElement = function (nums1, nums2) {
   var stack = [], map = {}, res = []
   for (var i = 0; i < nums2.length; i++) {
-      while (stack.length > 0 && nums2[i] > stack[stack.length - 1]) {
-          var key = stack.pop()
-          map[key] = nums2[i]
-      }
-      stack.push(nums2[i]) 
+    while (stack.length > 0 && nums2[i] > stack[stack.length - 1]) {
+      var key = stack.pop()
+      map[key] = nums2[i]
+    }
+    stack.push(nums2[i])
   }
-  
-  return nums1.map(function(i) {
-      return map[i] ? map[i] : -1
+
+  return nums1.map(function (i) {
+    return map[i] ? map[i] : -1
   })
 };

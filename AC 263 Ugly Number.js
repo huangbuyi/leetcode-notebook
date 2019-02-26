@@ -2,7 +2,7 @@
  * @param {number} num
  * @return {boolean}
  */
-var isUgly = function(num) {
+var isUgly = function (num) {
   if (!num) return true
   while (num % 2 === 0) num /= 2
   while (num % 3 === 0) num /= 3

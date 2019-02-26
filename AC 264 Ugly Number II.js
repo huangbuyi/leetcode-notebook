@@ -1,8 +1,8 @@
 /**
  * @param {number} n
  * @return {number}
- */                                                                                                                                                                                                                           
-var nthUglyNumber = function(n) {
+ */
+var nthUglyNumber = function (n) {
   var i2 = 0, i3 = 0, i5 = 0, k = [1], i
   for (i = 1; i < n; i++) {
     k[i] = Math.min(k[i2] * 2, k[i3] * 3, k[i5] * 5)

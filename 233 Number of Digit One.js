@@ -2,12 +2,12 @@
  * @param {number} n
  * @return {number}
  */
-var countDigitOne = function(n) {
-    var count = 0
-    while (1) {
-      if (n )
+var countDigitOne = function (n) {
+  var count = 0
+  while (1) {
+    if (n)
       count += Math.floor(n / 10)
-    }
+  }
 };
 
 /* 

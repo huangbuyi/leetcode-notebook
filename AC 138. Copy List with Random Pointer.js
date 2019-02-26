@@ -26,32 +26,32 @@ c1 -> c2 -> null
  * @param {RandomListNode} head
  * @return {RandomListNode}
  */
-var copyRandomList = function(head) {
+var copyRandomList = function (head) {
   if (!head) return null
   var map = new Map(), newHead = new RandomListNode(head.label), curr = head.next, newLast = newHead
   map.set(head, newHead)
   map.set(null, null)
-  
+
   while (curr) {
-      newLast.next = new RandomListNode(curr.label)
-      map.set(curr, newLast.next)
-      curr = curr.next
-      newLast = newLast.next
+    newLast.next = new RandomListNode(curr.label)
+    map.set(curr, newLast.next)
+    curr = curr.next
+    newLast = newLast.next
   }
-  
+
   var curr1 = head, curr2 = newHead
   while (curr1) {
-      curr2.random = map.get(curr1.random)
-      curr1 = curr1.next
-      curr2 = curr2.next
+    curr2.random = map.get(curr1.random)
+    curr1 = curr1.next
+    curr2 = curr2.next
   }
-  
+
   return newHead
 };
 
 function RandomListNode(label) {
-    this.label = label;
-    this.next = this.random = null;
+  this.label = label;
+  this.next = this.random = null;
 }
 
 var testNode = new RandomListNode(1)

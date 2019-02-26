@@ -3,7 +3,7 @@
  * @param {number} amount
  * @return {number}
  */
-var coinChange = function(coins, amount) {
+var coinChange = function (coins, amount) {
   if (amount === 0) return 0
   var lastSum = [0], sum = [], dup = {}, res = 1
   while (lastSum.length !== 0) {
@@ -50,9 +50,9 @@ public:
 
 var assert = require('assert')
 // assert.equal(coinChange([1,2,5], 0), 0)
-assert.equal(coinChange([1,2,5], 11), 3)
-assert.equal(coinChange([1,4,5], 8), 2)
-assert.equal(coinChange([1,4,5], 13), 3)
+assert.equal(coinChange([1, 2, 5], 11), 3)
+assert.equal(coinChange([1, 4, 5], 8), 2)
+assert.equal(coinChange([1, 4, 5], 13), 3)
 assert.equal(coinChange([2], 3), -1)
 assert.equal(coinChange([1], 100), 100)
-assert.equal(coinChange([1,2], 100), 50)
+assert.equal(coinChange([1, 2], 100), 50)

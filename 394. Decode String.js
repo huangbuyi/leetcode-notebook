@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {string}
  */
-var decodeString = function(s) {
+var decodeString = function (s) {
   var i = 0, res = ''
   var decodeBrackets = function () {
     var res = ''
@@ -13,7 +13,7 @@ var decodeString = function(s) {
   }
 
   while (i < s.length) {
-  
+
     if (s[i] === '[') {
       decodeBrackets()
     }

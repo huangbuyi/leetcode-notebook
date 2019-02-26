@@ -3,7 +3,7 @@
  * @param {number} k
  * @return {string}
  */
-var removeKdigits = function(num, k) {
+var removeKdigits = function (num, k) {
   var res = '', i = 0, min
 
   while (i + k < num.length) {

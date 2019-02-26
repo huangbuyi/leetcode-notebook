@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {number}
  */
-var longestPalindrome = function(s) {
+var longestPalindrome = function (s) {
   var res = 0, hash = {}, mid = 0
   for (var i = 0; i < s.length; i++) {
     hash[s[i]] = (hash[s[i]] || 0) + 1

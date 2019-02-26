@@ -3,7 +3,7 @@
  * @param {string} guess
  * @return {string}
  */
-var getHint = function(secret, guess) {
+var getHint = function (secret, guess) {
   var cow = 0, bull = 0, count = new Array(10).fill(0)
   for (var i = 0; i < secret.length; i++) {
     if (secret[i] === guess[i]) {

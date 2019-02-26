@@ -10,7 +10,7 @@
  * @param {number[]} arr
  * @return {number}
  */
-var maxChunksToSorted = function(arr) {
+var maxChunksToSorted = function (arr) {
   var s = 0, res = 1
   for (var i = 0; i < arr.length; i++) {
     if (i > s) res++

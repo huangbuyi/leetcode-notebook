@@ -10,17 +10,17 @@
  * @param {number} K
  * @return {number}
  */
-var smallestRangeII = function(A, K) {
+var smallestRangeII = function (A, K) {
   var res
-  A.sort(function(a, b) { return a - b })
+  A.sort(function (a, b) { return a - b })
   res = A[A.length - 1] - A[0]
   if (res <= K) return res
-  
+
   for (var i = 1; i < A.length; i++) {
-      var max = Math.max(A[i - 1] + K, A[A.length - 1] - K)
-      var min = Math.min(A[i] - K, A[0] + K)
-      res = Math.min(max - min, res)
+    var max = Math.max(A[i - 1] + K, A[A.length - 1] - K)
+    var min = Math.min(A[i] - K, A[0] + K)
+    res = Math.min(max - min, res)
   }
-  
+
   return res
 };

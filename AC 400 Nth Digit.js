@@ -2,7 +2,7 @@
  * @param {number} n
  * @return {number}
  */
-var findNthDigit = function(n) {
+var findNthDigit = function (n) {
   var len = 1, count = 9
   while (n > len * count) {
     n -= len * count

@@ -2,7 +2,7 @@
  * @param {number} num
  * @return {string[]}
  */
-var readBinaryWatch = function(num) {
+var readBinaryWatch = function (num) {
   var led = {}
   for (var i = 0; i < 60; i++) {
     var j = i, count = 0
@@ -15,7 +15,7 @@ var readBinaryWatch = function(num) {
     led[count] = led[count] || []
     led[count].push(i)
   }
-  
+
 };
 
 readBinaryWatch(5)

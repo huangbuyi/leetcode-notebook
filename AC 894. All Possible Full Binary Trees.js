@@ -16,23 +16,23 @@ N 为偶数是，无法构成任何 FBT。N 为奇数时，
  * @param {number} N
  * @return {TreeNode[]}
  */
-var allPossibleFBT = function(N) {
+var allPossibleFBT = function (N) {
   if (N % 2 === 0) return []
   if (N === 1) return [new TreeNode(0)]
-  
+
   var res = []
   for (var i = 1; i < N; i += 2) {
-      var left = allPossibleFBT(i), right = []
-      for (var j = 0; j < left.length; j++) {
-          var right = allPossibleFBT(N - 1 - i)
-          for (var k = 0; k < right.length; k++) {
-              var root = new TreeNode(0)
-              root.left = left[j]
-              root.right = right[k]
-              res.push(root)
-          }
+    var left = allPossibleFBT(i), right = []
+    for (var j = 0; j < left.length; j++) {
+      var right = allPossibleFBT(N - 1 - i)
+      for (var k = 0; k < right.length; k++) {
+        var root = new TreeNode(0)
+        root.left = left[j]
+        root.right = right[k]
+        res.push(root)
       }
+    }
   }
-  
+
   return res
 };

@@ -11,15 +11,15 @@
  * @param {number} K
  * @return {number}
  */
-var subarraysDivByK = function(A, K) {
+var subarraysDivByK = function (A, K) {
   var prefix = 0, res = 0, count = new Array(K).fill(0)
   count[0] = 1
-  
+
   for (var i = 0; i < A.length; i++) {
-      prefix = (prefix + A[i] % K + K) % K
-      res += count[prefix]
-      count[prefix]++
+    prefix = (prefix + A[i] % K + K) % K
+    res += count[prefix]
+    count[prefix]++
   }
-  
+
   return res
 };

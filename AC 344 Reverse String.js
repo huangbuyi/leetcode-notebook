@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {string}
  */
-var reverseString = function(s) {
+var reverseString = function (s) {
   var tmp = '', right, s = s.split('')
   for (var i = 0; i < s.length / 2; i++) {
     right = s.length - 1 - i

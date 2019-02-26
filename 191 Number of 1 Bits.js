@@ -3,11 +3,11 @@ var assert = require('assert')
  * @param {number} n - a positive integer
  * @return {number}
  */
-var hammingWeight = function(n) {
+var hammingWeight = function (n) {
   var count = 0
   while (n >= 1) {
-      count += n % 2
-      n = n / 2 >> 0
+    count += n % 2
+    n = n / 2 >> 0
   }
   return count
 };

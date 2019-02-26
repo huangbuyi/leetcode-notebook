@@ -7,50 +7,50 @@
  * @param {string[]} words
  * @return {string}
  */
-var longestWord = function(words) {
+var longestWord = function (words) {
   var trie = new Trie()
   trie.add('')
   for (var i = 0; i < words.length; i++) {
-      trie.add(words[i])
+    trie.add(words[i])
   }
   return trie.longestWord()
 };
 
-var TrieNode = function(val) {
+var TrieNode = function (val) {
   this.val = val
   this.children = {}
   this.complete = false
 }
 
-var Trie = function() {
+var Trie = function () {
   this.root = new TrieNode('')
 }
 
-Trie.prototype.add = function(letter) {
+Trie.prototype.add = function (letter) {
   var curr = this.root
   for (var i = 0; i < letter.length; i++) {
-      var c = letter[i]
-      if (!curr.children[c]) curr.children[c] = new TrieNode(c)
-      curr = curr.children[c]
+    var c = letter[i]
+    if (!curr.children[c]) curr.children[c] = new TrieNode(c)
+    curr = curr.children[c]
   }
   curr.complete = true
 }
 
-Trie.prototype.longestWord = function() {  
-  var helper = function(node) {
-      if (!node.complete) return ''
-      var max = 0, res = '', s
-      
-      for (var c in node.children) {
-          s = helper(node.children[c])
-          if (s.length > max || (s.length === max && s < res)) {
-              max = s.length
-              res = s
-          }
+Trie.prototype.longestWord = function () {
+  var helper = function (node) {
+    if (!node.complete) return ''
+    var max = 0, res = '', s
+
+    for (var c in node.children) {
+      s = helper(node.children[c])
+      if (s.length > max || (s.length === max && s < res)) {
+        max = s.length
+        res = s
       }
-      
-      return node.val + res
+    }
+
+    return node.val + res
   }
-  
+
   return helper(this.root)
 }

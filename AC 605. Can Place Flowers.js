@@ -8,18 +8,18 @@
  * @param {number} n
  * @return {boolean}
  */
-var canPlaceFlowers = function(flowerbed, n) {
+var canPlaceFlowers = function (flowerbed, n) {
   if (n === 0) return true
   var local = flowerbed[0]
   for (var i = 1; i <= flowerbed.length; i++) {
-      if (i < flowerbed.length) local += flowerbed[i]
-      if (i - 3 >= 0) local -= flowerbed[i - 3]
-      if (local === 0) {
-          n--
-          flowerbed[i - 1] = 1
-          local++
-          if (n === 0) return true
-      }
+    if (i < flowerbed.length) local += flowerbed[i]
+    if (i - 3 >= 0) local -= flowerbed[i - 3]
+    if (local === 0) {
+      n--
+      flowerbed[i - 1] = 1
+      local++
+      if (n === 0) return true
+    }
   }
   return false
 };

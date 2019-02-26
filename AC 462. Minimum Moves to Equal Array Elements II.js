@@ -13,15 +13,15 @@
  * @param {number[]} nums
  * @return {number}
  */
-var minMoves2 = function(nums) {
-  var nums = nums.sort(function(a, b) { return a - b })
+var minMoves2 = function (nums) {
+  var nums = nums.sort(function (a, b) { return a - b })
   var median = nums[Math.floor(nums.length / 2)]
   var count = 0
-  
+
   for (var i = 0; i < nums.length; i++) {
-      count += Math.abs(nums[i] - median)
+    count += Math.abs(nums[i] - median)
   }
-  
+
   return count
 };
 

@@ -12,34 +12,34 @@
  * @param {number} n
  * @return {number}
  */
-var nextGreaterElement = function(n) {
+var nextGreaterElement = function (n) {
   n = n.toString().split('')
-  
-  for (var i = n.length - 2; i >= 0; i--) {
-      var j = i
-      while (n[i] < n[j + 1]) {
-          j++
-      }
 
-      if (i !== j) {
-          var t = n[i]
-          n[i] = n[j]
-          n[j] = t
-          reverse(n, i + 1, n.length - 1)
-          var res = Number(n.join(''))
-          return res < Math.pow(2, 32) / 2 ? res : -1
-      }
+  for (var i = n.length - 2; i >= 0; i--) {
+    var j = i
+    while (n[i] < n[j + 1]) {
+      j++
+    }
+
+    if (i !== j) {
+      var t = n[i]
+      n[i] = n[j]
+      n[j] = t
+      reverse(n, i + 1, n.length - 1)
+      var res = Number(n.join(''))
+      return res < Math.pow(2, 32) / 2 ? res : -1
+    }
   }
-  
+
   return -1
 };
 
-var reverse = function(arr, i, j) {
+var reverse = function (arr, i, j) {
   while (i < j) {
-      var t = arr[i]
-      arr[i] = arr[j]
-      arr[j] = t
-      i++
-      j--
+    var t = arr[i]
+    arr[i] = arr[j]
+    arr[j] = t
+    i++
+    j--
   }
 }

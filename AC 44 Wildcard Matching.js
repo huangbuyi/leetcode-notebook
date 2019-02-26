@@ -4,31 +4,31 @@ var assert = require('assert')
  * @param {string} p
  * @return {boolean}
  */
-var isMatch = function(s, p) {
-    var dp = new Array(s.length + 1).fill(undefined).map(function () {return []}),
-    		i, j
+var isMatch = function (s, p) {
+  var dp = new Array(s.length + 1).fill(undefined).map(function () { return [] }),
+    i, j
 
-    // empty string macth empty pattern
-    dp[0][0] = true
+  // empty string macth empty pattern
+  dp[0][0] = true
 
-    for (i = 0; i < p.length; i++) {
-    	if (p[i] === '*') {
-    		dp[0][i + 1] = dp[0][i]
-    	}
+  for (i = 0; i < p.length; i++) {
+    if (p[i] === '*') {
+      dp[0][i + 1] = dp[0][i]
     }
+  }
 
-    for (i = 0; i < s.length; i++) {
-    	for (j = 0; j < p.length; j++) {
-    		if (s[i] === p[j] || p[j] === '?') {
-    			dp[i + 1][j + 1] = dp[i][j]
-    		}
-    		if (p[j] === '*') {
-    			dp[i + 1][j + 1] = dp[i + 1][j] || dp[i][j + 1]
-    		}
-    	}
+  for (i = 0; i < s.length; i++) {
+    for (j = 0; j < p.length; j++) {
+      if (s[i] === p[j] || p[j] === '?') {
+        dp[i + 1][j + 1] = dp[i][j]
+      }
+      if (p[j] === '*') {
+        dp[i + 1][j + 1] = dp[i + 1][j] || dp[i][j + 1]
+      }
     }
+  }
 
-    return !!dp[s.length][p.length]
+  return !!dp[s.length][p.length]
 };
 
 assert.equal(isMatch('aa', 'a'), false)

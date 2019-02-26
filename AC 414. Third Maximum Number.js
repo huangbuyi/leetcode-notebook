@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var thirdMax = function(nums) {
+var thirdMax = function (nums) {
   var comparor = function (a, b) { return b - a }
   var s = 0, maxs = []
   while (s < nums.length && maxs.length < 3) {
@@ -24,11 +24,11 @@ var thirdMax = function(nums) {
 };
 
 var assert = require('assert')
-assert.equal(thirdMax([1]),1)
-assert.equal(thirdMax([1,2]),2)
-assert.equal(thirdMax([1,2,3]),1)
-assert.equal(thirdMax([1,3,3]),3)
-assert.equal(thirdMax([1,2,2,3]),1)
-assert.equal(thirdMax([2,2,2,2,2,2,2,2,2]),2)
-assert.equal(thirdMax([0,0,-1,-2,0,-1]),-2)
-assert.equal(thirdMax([1,5,8,41,2,1,5,6,3,1,2,5,45,2,21,41]),21)
+assert.equal(thirdMax([1]), 1)
+assert.equal(thirdMax([1, 2]), 2)
+assert.equal(thirdMax([1, 2, 3]), 1)
+assert.equal(thirdMax([1, 3, 3]), 3)
+assert.equal(thirdMax([1, 2, 2, 3]), 1)
+assert.equal(thirdMax([2, 2, 2, 2, 2, 2, 2, 2, 2]), 2)
+assert.equal(thirdMax([0, 0, -1, -2, 0, -1]), -2)
+assert.equal(thirdMax([1, 5, 8, 41, 2, 1, 5, 6, 3, 1, 2, 5, 45, 2, 21, 41]), 21)

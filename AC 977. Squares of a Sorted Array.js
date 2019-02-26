@@ -7,33 +7,33 @@
  * @param {number[]} A
  * @return {number[]}
  */
-var sortedSquares = function(A) {
+var sortedSquares = function (A) {
   var r = 0, res = []
   while (A[r] < 0) {
-      r++
+    r++
   }
-  
+
   var l = r - 1
   console.log(l, r)
   while (l >= 0 && r < A.length) {
-      if (A[l] * A[l] < A[r] * A[r]) {
-          res.push(A[l] * A[l])
-          l--
-      } else {
-          res.push(A[r] * A[r])
-          r++
-      }
-  }
-  
-  while (l >= 0) {
+    if (A[l] * A[l] < A[r] * A[r]) {
       res.push(A[l] * A[l])
       l--
-  }
-  
-  while (r < A.length) {
+    } else {
       res.push(A[r] * A[r])
       r++
+    }
   }
-  
+
+  while (l >= 0) {
+    res.push(A[l] * A[l])
+    l--
+  }
+
+  while (r < A.length) {
+    res.push(A[r] * A[r])
+    r++
+  }
+
   return res
 };

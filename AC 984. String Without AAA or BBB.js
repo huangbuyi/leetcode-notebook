@@ -7,7 +7,7 @@
  * @param {number} B
  * @return {string}
  */
-var strWithout3a3b = function(A, B) {
+var strWithout3a3b = function (A, B) {
   if (A >= B + 2) return 'aab'.repeat(A - 2 - B) + 'ab'.repeat(2 * B + 2 - A) + 'aa'
   if (A === B + 1) return 'ab'.repeat(B) + 'a'
   if (A === B) return 'ab'.repeat(B)

@@ -2,18 +2,18 @@
  * @param {string} s
  * @return {number}
  */
-var numDecodings = function(s) {
+var numDecodings = function (s) {
   var map = []
   map[s.length] = 1
   map[s.length - 1] = s[s.length - 1] === '0' ? 0 : 1
   for (i = s.length - 2; i >= 0; i--) {
-      if (s[i] === '0') {
-          map[i] = 0
-      } else if (s[i] === '1' || (s[i] === '2' && s[i + 1] <= 6)) {
-          map[i] = map[i + 1] + map[i + 2]
-      } else {
-          map[i] = map[i + 1]
-      }
+    if (s[i] === '0') {
+      map[i] = 0
+    } else if (s[i] === '1' || (s[i] === '2' && s[i + 1] <= 6)) {
+      map[i] = map[i + 1] + map[i + 2]
+    } else {
+      map[i] = map[i + 1]
+    }
   }
 
   return s.length === 0 ? 0 : map[0]

@@ -11,16 +11,16 @@ sum(i) % k === sum(j) % k
  * @param {number} k
  * @return {boolean}
  */
-var checkSubarraySum = function(nums, k) {
+var checkSubarraySum = function (nums, k) {
   var sum = 0, lastSum = 0, map = {}
-  
+
   for (var i = 0; i < nums.length; i++) {
-      sum += nums[i]
-      if (k !== 0 ) sum %= k
-      if (map[sum]) return true
-      map[lastSum] = true
-      lastSum = sum
+    sum += nums[i]
+    if (k !== 0) sum %= k
+    if (map[sum]) return true
+    map[lastSum] = true
+    lastSum = sum
   }
-  
+
   return false
 };

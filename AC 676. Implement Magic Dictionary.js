@@ -1,34 +1,34 @@
-var TrieNode = function(val) {
+var TrieNode = function (val) {
   this.val = val || ''
   this.children = []
   this.complete = false
 }
 
-var Trie = function() {
+var Trie = function () {
   this.root = new TrieNode()
 }
 
-Trie.prototype.insert = function(word) {
+Trie.prototype.insert = function (word) {
   var letters = word.split('')
   var node = this.root
   for (var i = 0; i < letters.length; i++) {
-      var letter = letters[i]
-      if (!node.children[letter]) {
-          node.children[letter] = new TrieNode(letter)
-      }
-      node = node.children[letter]
+    var letter = letters[i]
+    if (!node.children[letter]) {
+      node.children[letter] = new TrieNode(letter)
+    }
+    node = node.children[letter]
   }
   node.complete = true
 }
 
-Trie.prototype.search = function(node, word) {
+Trie.prototype.search = function (node, word) {
   var letters = word.split('')
   for (var i = 0; i < letters.length; i++) {
-      var letter = letters[i]
-      if (!node.children[letter]) {
-          return false
-      }
-      node = node.children[letter]
+    var letter = letters[i]
+    if (!node.children[letter]) {
+      return false
+    }
+    node = node.children[letter]
   }
   return node.complete
 }
@@ -36,7 +36,7 @@ Trie.prototype.search = function(node, word) {
 /**
 * Initialize your data structure here.
 */
-var MagicDictionary = function() {
+var MagicDictionary = function () {
   this.trie = new Trie()
 };
 
@@ -45,9 +45,9 @@ var MagicDictionary = function() {
 * @param {string[]} dict
 * @return {void}
 */
-MagicDictionary.prototype.buildDict = function(dict) {
+MagicDictionary.prototype.buildDict = function (dict) {
   for (var i = 0; i < dict.length; i++) {
-      this.trie.insert(dict[i])
+    this.trie.insert(dict[i])
   }
 };
 
@@ -56,43 +56,43 @@ MagicDictionary.prototype.buildDict = function(dict) {
 * @param {string} word
 * @return {boolean}
 */
-MagicDictionary.prototype.search = function(word) {
+MagicDictionary.prototype.search = function (word) {
   var letters = word.split('')
   var node = this.trie.root
   var search = this.trie.search
 
   for (var i = 0; i < letters.length - 1; i++) {
-      var letter = letters[i]
-      for (var child in node.children) {
-          if (child !== letter && search(node.children[child], word.substr(i + 1))) {
-              return true
-          }
+    var letter = letters[i]
+    for (var child in node.children) {
+      if (child !== letter && search(node.children[child], word.substr(i + 1))) {
+        return true
       }
-      if (!node.children[letter]) {
-          console.log('false', word, node.val)
-          return false
-      }
-      node = node.children[letter]
+    }
+    if (!node.children[letter]) {
+      console.log('false', word, node.val)
+      return false
+    }
+    node = node.children[letter]
   }
-  
+
   for (var child in node.children) {
-      var childNode = node.children[child]
-      if (childNode.complete && child !== letters[letters.length - 1]) {
-          return true
-      }
+    var childNode = node.children[child]
+    if (childNode.complete && child !== letters[letters.length - 1]) {
+      return true
+    }
   }
-  
+
   return false
 };
 
-/** 
+/**
 * Your MagicDictionary object will be instantiated and called as such:
 * var obj = Object.create(MagicDictionary).createNew()
 * obj.buildDict(dict)
 * var param_2 = obj.search(word)
 */
 
-/* 
+/*
 前几天做了几道关于 Trie Tree 的题，导致我在设计数据结构的时候第一想到的就是 Trie Tree。虽然 search 实现比较复杂，好在时间复杂度O(1)和空间复杂度O(n)都比较好。
 看了下讨论，用 HashMap 的比较多，两个热门讨论：
 1：一个是把单词移除一个字符作为键，值是一个数组，保存移除的字符和位置，搜索的时候查找每种组合，遍历这个数组，判断缺省字符的位置和值，如果位置相同但值不同，则变体存在。

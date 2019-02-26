@@ -8,7 +8,7 @@
 /**
  * Initialize your data structure here.
  */
-var MyHashSet = function() {
+var MyHashSet = function () {
   this.list = new Array(1000001).fill(false)
 };
 
@@ -16,7 +16,7 @@ var MyHashSet = function() {
 * @param {number} key
 * @return {void}
 */
-MyHashSet.prototype.add = function(key) {
+MyHashSet.prototype.add = function (key) {
   this.list[key] = true
 };
 
@@ -24,7 +24,7 @@ MyHashSet.prototype.add = function(key) {
 * @param {number} key
 * @return {void}
 */
-MyHashSet.prototype.remove = function(key) {
+MyHashSet.prototype.remove = function (key) {
   this.list[key] = false
 };
 
@@ -33,11 +33,11 @@ MyHashSet.prototype.remove = function(key) {
 * @param {number} key
 * @return {boolean}
 */
-MyHashSet.prototype.contains = function(key) {
+MyHashSet.prototype.contains = function (key) {
   return this.list[key]
 };
 
-/** 
+/**
 * Your MyHashSet object will be instantiated and called as such:
 * var obj = Object.create(MyHashSet).createNew()
 * obj.add(key)

@@ -13,25 +13,25 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var rob = function(root) {
-  var order = function(node, canThieve) {
-      if (!node) {
-          return 0
-      }
-      
-      if (canThieve && node.max2) {
-          return node.max2
-      }
-      
-      if (!canThieve && node.max1) {
-          return node.max1
-      }
-      
-      if (!canThieve) {
-          return order(node.left, true) + order(node.right, true)
-      }
-      
-      return node.max2 = Math.max(node.val + order(node.left, false) + order(node.right, false), order(node.left, true) + order(node.right, true))
+var rob = function (root) {
+  var order = function (node, canThieve) {
+    if (!node) {
+      return 0
+    }
+
+    if (canThieve && node.max2) {
+      return node.max2
+    }
+
+    if (!canThieve && node.max1) {
+      return node.max1
+    }
+
+    if (!canThieve) {
+      return order(node.left, true) + order(node.right, true)
+    }
+
+    return node.max2 = Math.max(node.val + order(node.left, false) + order(node.right, false), order(node.left, true) + order(node.right, true))
   }
 
   return order(root, true)

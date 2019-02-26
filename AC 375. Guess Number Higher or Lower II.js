@@ -2,7 +2,7 @@
  * @param {number} n
  * @return {number}
  */
-var getMoneyAmount = function(n) {
+var getMoneyAmount = function (n) {
   var hash = new Array(n).fill(undefined).map(function () {
     return new Array(n)
   })

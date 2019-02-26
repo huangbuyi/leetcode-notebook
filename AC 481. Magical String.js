@@ -20,20 +20,20 @@ Magic String 生成可以遵循如下步骤，| 标记下一次重复个数：
  * @param {number} n
  * @return {number}
  */
-var magicalString = function(n) {
+var magicalString = function (n) {
   var queue = [], one = true, count1 = 0
   while (n > 0) {
-      queue.shift()
-      var c = one ? 1 : 2
-      one = !one
+    queue.shift()
+    var c = one ? 1 : 2
+    one = !one
+    queue.push(c)
+    n--
+    count1 += 2 - c
+    if (queue[0] === 2 && n > 0) {
       queue.push(c)
       n--
       count1 += 2 - c
-      if (queue[0] === 2 && n > 0) {
-          queue.push(c)
-          n--
-          count1 += 2 - c
-      }
+    }
   }
   return count1
 };

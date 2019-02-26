@@ -6,22 +6,22 @@
  * @param {string[]} A
  * @return {number}
  */
-var numSpecialEquivGroups = function(A) {
+var numSpecialEquivGroups = function (A) {
   var map = {}, count = 0
   for (var i = 0; i < A.length; i++) {
-      var odd = [], even = []
-      for (var j = 0; j < A[i].length; j++) {
-          if (j & 1) {
-              odd.push(A[i][j])
-          } else {
-              even.push(A[i][j])
-          }
+    var odd = [], even = []
+    for (var j = 0; j < A[i].length; j++) {
+      if (j & 1) {
+        odd.push(A[i][j])
+      } else {
+        even.push(A[i][j])
       }
-      var key = odd.sort().join('') + '-' + even.sort().join('')
-      if (!map[key]) {
-          count++
-          map[key] = true
-      }
+    }
+    var key = odd.sort().join('') + '-' + even.sort().join('')
+    if (!map[key]) {
+      count++
+      map[key] = true
+    }
   }
   return count
 };

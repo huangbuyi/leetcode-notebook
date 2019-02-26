@@ -2,7 +2,7 @@
  * @param {number} n
  * @return {number[]}
  */
-var lexicalOrder = function(n) {
+var lexicalOrder = function (n) {
   var k = 1, j = 0, res = []
   while (j++ < n) {
     res.push(k)
@@ -12,7 +12,7 @@ var lexicalOrder = function(n) {
       if (k + 1 > n) {
         k = Math.floor(k / 10)
       }
-      k +=1
+      k += 1
       while (k % 10 === 0) {
         k /= 10
       }

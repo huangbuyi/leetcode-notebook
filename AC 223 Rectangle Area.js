@@ -9,10 +9,10 @@
  * @param {number} H
  * @return {number}
  */
-var computeArea = function(A, B, C, D, E, F, G, H) {
+var computeArea = function (A, B, C, D, E, F, G, H) {
   var area = (C - A) * (D - B) + (G - E) * (H - F),
-      x1, y1, x2, y2
-  
+    x1, y1, x2, y2
+
   if (A >= G || B >= H || C <= E || D <= F) {
     return area
   }
@@ -31,26 +31,26 @@ var computeArea = function(A, B, C, D, E, F, G, H) {
 */
 
 var assert = require('assert')
-assert.equal(computeArea(0,0,0,0,0,0,0,0), 0)
+assert.equal(computeArea(0, 0, 0, 0, 0, 0, 0, 0), 0)
 // 分离
-assert.equal(computeArea(0,0,2,2,3,3,4,4), 5)
+assert.equal(computeArea(0, 0, 2, 2, 3, 3, 4, 4), 5)
 // 相连
-assert.equal(computeArea(0,0,2,2,2,0,4,2), 8)
+assert.equal(computeArea(0, 0, 2, 2, 2, 0, 4, 2), 8)
 // 右重叠
-assert.equal(computeArea(0,0,2,2,1,0,3,2), 6)
+assert.equal(computeArea(0, 0, 2, 2, 1, 0, 3, 2), 6)
 // 上重叠
-assert.equal(computeArea(0,0,2,2,0,1,2,3), 6)
+assert.equal(computeArea(0, 0, 2, 2, 0, 1, 2, 3), 6)
 // 右上重叠
-assert.equal(computeArea(0,0,2,2,1,1,3,3), 7)
+assert.equal(computeArea(0, 0, 2, 2, 1, 1, 3, 3), 7)
 // 左下重叠
-assert.equal(computeArea(0,0,2,2,-1,-1,1,1), 7)
+assert.equal(computeArea(0, 0, 2, 2, -1, -1, 1, 1), 7)
 // 左上重叠
-assert.equal(computeArea(0,0,2,2,-1,1,1,3), 7)
+assert.equal(computeArea(0, 0, 2, 2, -1, 1, 1, 3), 7)
 // 右下重叠
-assert.equal(computeArea(0,0,2,2,1,-1,3,1), 7)
+assert.equal(computeArea(0, 0, 2, 2, 1, -1, 3, 1), 7)
 // 完全重叠
-assert.equal(computeArea(-2,-2,2,2,-2,-2,2,2), 16)
+assert.equal(computeArea(-2, -2, 2, 2, -2, -2, 2, 2), 16)
 // 完全包裹
-assert.equal(computeArea(-2,-2,2,2,-1,-1,1,1), 16)
+assert.equal(computeArea(-2, -2, 2, 2, -1, -1, 1, 1), 16)
 // 贯穿
-assert.equal(computeArea(-2,-2,2,2,-3,-1,3,1), 20)
+assert.equal(computeArea(-2, -2, 2, 2, -3, -1, 3, 1), 20)

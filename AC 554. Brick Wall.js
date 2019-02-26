@@ -7,15 +7,15 @@
  * @param {number[][]} wall
  * @return {number}
  */
-var leastBricks = function(wall) {
+var leastBricks = function (wall) {
   var map = {}, min = wall.length
   for (var i = 0; i < wall.length; i++) {
-      var width = 0
-      for (var j = 0; j < wall[i].length - 1; j++) {
-          width += wall[i][j]
-          map[width] = map[width] ? map[width] + 1 : 1
-          min = Math.min(wall.length - map[width], min)
-      }
+    var width = 0
+    for (var j = 0; j < wall[i].length - 1; j++) {
+      width += wall[i][j]
+      map[width] = map[width] ? map[width] + 1 : 1
+      min = Math.min(wall.length - map[width], min)
+    }
   }
   return min
 };

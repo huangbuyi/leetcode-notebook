@@ -9,16 +9,16 @@
  * @param {string} pattern
  * @return {string[]}
  */
-var findAndReplacePattern = function(words, pattern) {
+var findAndReplacePattern = function (words, pattern) {
   var pattern = format(pattern)
   return words.filter(w => format(w) === pattern)
 };
 
-var format = function(s) {
+var format = function (s) {
   var map = {}, res = '', code = 97
   for (var i = 0; i < s.length; i++) {
-      if (!map[s[i]]) map[s[i]] = String.fromCharCode(code++)
-      res += [map[s[i]]]
+    if (!map[s[i]]) map[s[i]] = String.fromCharCode(code++)
+    res += [map[s[i]]]
   }
   return res
 }

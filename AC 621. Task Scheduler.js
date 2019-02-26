@@ -16,20 +16,20 @@ ABC ... ABC ... ABC
  * @param {number} n
  * @return {number}
  */
-var leastInterval = function(tasks, n) {
+var leastInterval = function (tasks, n) {
   var max = 0, map = {}
   for (var i = 0; i < tasks.length; i++) {
-      var task = tasks[i]
-      if (!map[task]) {
-          map[task] = 0
-      }
-      map[task] += 1
-      max = Math.max(max, map[task])
+    var task = tasks[i]
+    if (!map[task]) {
+      map[task] = 0
+    }
+    map[task] += 1
+    max = Math.max(max, map[task])
   }
   var repeat = 0
   for (var key in map) {
-      repeat += map[key] === max ? 1 : 0
+    repeat += map[key] === max ? 1 : 0
   }
 
-  return Math.max((n + 1) * (max - 1) + repeat, tasks.length) 
+  return Math.max((n + 1) * (max - 1) + repeat, tasks.length)
 };

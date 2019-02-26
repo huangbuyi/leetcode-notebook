@@ -10,7 +10,7 @@
  * @param {TreeNode} t2
  * @return {TreeNode}
  */
-var mergeTrees = function(t1, t2) {
+var mergeTrees = function (t1, t2) {
   if (!t2) return t1
   if (!t1) t1 = new TreeNode(0)
   t1.val += t2.val

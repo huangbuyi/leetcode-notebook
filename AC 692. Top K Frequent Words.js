@@ -10,28 +10,28 @@
  * @param {number} k
  * @return {string[]}
  */
-var topKFrequent = function(words, k) {
+var topKFrequent = function (words, k) {
   var map = {}, max = 0
   for (var i = 0; i < words.length; i++) {
-      map[words[i]] = map[words[i]] ? map[words[i]] + 1 : 1
-      max = Math.max(map[words[i]], max)
+    map[words[i]] = map[words[i]] ? map[words[i]] + 1 : 1
+    max = Math.max(map[words[i]], max)
   }
-  
+
   var bullet = new Array(max + 1)
   for (var word in map) {
-      var frequent = map[word]
-      if (!bullet[frequent]) {
-          bullet[frequent] = []
-      }
-      bullet[frequent].push(word)
+    var frequent = map[word]
+    if (!bullet[frequent]) {
+      bullet[frequent] = []
+    }
+    bullet[frequent].push(word)
   }
-  
+
   var res = []
   for (var i = max; i > 0 && res.length < k; i--) {
-      if (bullet[i]) {
-          res = res.concat(bullet[i].sort())   
-      }
+    if (bullet[i]) {
+      res = res.concat(bullet[i].sort())
+    }
   }
-  
+
   return res.slice(0, k)
 };

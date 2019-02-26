@@ -21,19 +21,19 @@ dp[j] = Math.max(piles[j - 1 - i] - dp[j], piles[j] - dp[j - 1])
  * @param {number[]} piles
  * @return {boolean}
  */
-var stoneGame = function(piles) {
+var stoneGame = function (piles) {
   var dp = new Array(piles)
-  
+
   for (var i = 0; i < piles.length; i++) {
-      dp[i] = piles[i]
+    dp[i] = piles[i]
   }
-  
+
   for (var i = 0; i < piles.length; i++) {
-      for (var j = piles.length - 1; j > i; j--) {
-          dp[j] = Math.max(piles[j - 1 - i] - dp[j], piles[j] - dp[j - 1])
-      }
+    for (var j = piles.length - 1; j > i; j--) {
+      dp[j] = Math.max(piles[j - 1 - i] - dp[j], piles[j] - dp[j - 1])
+    }
   }
-  
+
   return dp[dp.length - 1] > 0
 };
 

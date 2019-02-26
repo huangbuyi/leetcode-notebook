@@ -13,25 +13,25 @@
  * @param {string} t
  * @return {string}
  */
-var minWindow = function(s, t) {
+var minWindow = function (s, t) {
   var mapT = {}, mapS = {}, lh = 0, rh = 0, match = 0, min = Infinity, minIndex = 0
-  
+
   for (var i = 0; i < t.length; i++) {
-      mapT[t[i]] = mapT[t[i]] ? mapT[t[i]] + 1 : 1
+    mapT[t[i]] = mapT[t[i]] ? mapT[t[i]] + 1 : 1
   }
-  
+
   while (rh < s.length) {
-      mapS[s[rh]] = mapS[s[rh]] ? mapS[s[rh]] + 1 : 1
-      if (mapS[s[rh]] <= mapT[s[rh]]) match++
-      while ((!mapT[s[lh]] || mapS[s[lh]] > mapT[s[lh]]) && lh < rh) {
-          mapS[s[lh++]] -= 1
-      }
-      if (match >= t.length && rh - lh < min) {
-          min = rh - lh + 1
-          minIndex = lh
-      }
-      rh++
+    mapS[s[rh]] = mapS[s[rh]] ? mapS[s[rh]] + 1 : 1
+    if (mapS[s[rh]] <= mapT[s[rh]]) match++
+    while ((!mapT[s[lh]] || mapS[s[lh]] > mapT[s[lh]]) && lh < rh) {
+      mapS[s[lh++]] -= 1
+    }
+    if (match >= t.length && rh - lh < min) {
+      min = rh - lh + 1
+      minIndex = lh
+    }
+    rh++
   }
-  
+
   return min === Infinity ? '' : s.substr(minIndex, min)
 };

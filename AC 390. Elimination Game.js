@@ -10,13 +10,13 @@
  * @param {number} n
  * @return {number}
  */
-var lastRemaining = function(n) {
+var lastRemaining = function (n) {
   var s = 1, k = 1, a = 1
   while (n > 1) {
-      if (k & 1 || n & 1) s += a
-      k++
-      a <<= 1
-      n >>= 1
+    if (k & 1 || n & 1) s += a
+    k++
+    a <<= 1
+    n >>= 1
   }
   return s
 };

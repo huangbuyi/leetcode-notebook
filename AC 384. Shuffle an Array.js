@@ -1,7 +1,7 @@
 /**
  * @param {number[]} nums
  */
-var Solution = function(nums) {
+var Solution = function (nums) {
   this.input = nums
   this.output = this.input.slice(0)
 };
@@ -10,7 +10,7 @@ var Solution = function(nums) {
  * Resets the array to its original configuration and return it.
  * @return {number[]}
  */
-Solution.prototype.reset = function() {
+Solution.prototype.reset = function () {
   this.output = this.input.slice(0)
   return this.output
 };
@@ -19,7 +19,7 @@ Solution.prototype.reset = function() {
  * Returns a random shuffling of the array.
  * @return {number[]}
  */
-Solution.prototype.shuffle = function() {
+Solution.prototype.shuffle = function () {
   var output = this.output
   for (var i = output.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1))
@@ -30,7 +30,7 @@ Solution.prototype.shuffle = function() {
   return output
 };
 
-/** 
+/**
  * Your Solution object will be instantiated and called as such:
  * var obj = Object.create(Solution).createNew(nums)
  * var param_1 = obj.reset()

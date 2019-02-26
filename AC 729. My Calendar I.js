@@ -5,7 +5,7 @@
 如果区间相互叠加，插入失败。
 */
 
-var MyCalendar = function() {
+var MyCalendar = function () {
   this.root = null
 };
 
@@ -14,28 +14,28 @@ var MyCalendar = function() {
 * @param {number} end
 * @return {boolean}
 */
-MyCalendar.prototype.book = function(start, end) {
+MyCalendar.prototype.book = function (start, end) {
   if (!this.root) return this.root = new TreeNode([start, end])
   var node = this.root
   while (node) {
-      if (end <= node.val[0]) {
-          if (node.left) node = node.left
-          else return node.left = new TreeNode([start, end])
-      } else if (start >= node.val[1])  {
-          if (node.right) node = node.right
-          else return node.right = new TreeNode([start, end])
-      } else {
-          return false
-      }
+    if (end <= node.val[0]) {
+      if (node.left) node = node.left
+      else return node.left = new TreeNode([start, end])
+    } else if (start >= node.val[1]) {
+      if (node.right) node = node.right
+      else return node.right = new TreeNode([start, end])
+    } else {
+      return false
+    }
   }
 };
 
-var TreeNode = function(val) {
+var TreeNode = function (val) {
   this.val = val
   this.left = this.right = null
 }
 
-/** 
+/**
 * Your MyCalendar object will be instantiated and called as such:
 * var obj = Object.create(MyCalendar).createNew()
 * var param_1 = obj.book(start,end)

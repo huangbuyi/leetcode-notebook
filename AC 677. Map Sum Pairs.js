@@ -7,7 +7,7 @@
 /**
  * Initialize your data structure here.
  */
-var MapSum = function() {
+var MapSum = function () {
   this.hashMap = {}
   this.words = {}
 };
@@ -17,20 +17,20 @@ var MapSum = function() {
 * @param {number} val
 * @return {void}
 */
-MapSum.prototype.insert = function(key, val) {
+MapSum.prototype.insert = function (key, val) {
   var hashMap = this.hashMap
   var words = this.words
   if (words[key]) {
-      val = val - words[key]
+    val = val - words[key]
   } else {
-      words[key] = val
+    words[key] = val
   }
   for (var i = 0; i <= key.length; i++) {
-      var prefix = key.substring(0, i)
-      if (!hashMap[prefix]) {
-          hashMap[prefix] = 0
-      }
-      hashMap[prefix] += val
+    var prefix = key.substring(0, i)
+    if (!hashMap[prefix]) {
+      hashMap[prefix] = 0
+    }
+    hashMap[prefix] += val
   }
 };
 
@@ -38,11 +38,11 @@ MapSum.prototype.insert = function(key, val) {
 * @param {string} prefix
 * @return {number}
 */
-MapSum.prototype.sum = function(prefix) {
+MapSum.prototype.sum = function (prefix) {
   return this.hashMap[prefix] || 0
 };
 
-/** 
+/**
 * Your MapSum object will be instantiated and called as such:
 * var obj = Object.create(MapSum).createNew()
 * obj.insert(key,val)

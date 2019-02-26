@@ -2,8 +2,8 @@
  * @param {string} s
  * @return {string}
  */
-var reverseVowels = function(s) {
-  var i = 0, j = s.length - 1, vowels = ['a','e','i','o','u'], s = s.split(''), tmp
+var reverseVowels = function (s) {
+  var i = 0, j = s.length - 1, vowels = ['a', 'e', 'i', 'o', 'u'], s = s.split(''), tmp
   while (1) {
     while (s[i] && vowels.indexOf(s[i].toLowerCase()) === -1) {
       i++

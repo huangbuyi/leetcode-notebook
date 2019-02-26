@@ -3,8 +3,8 @@
  * @param {string} t
  * @return {boolean}
  */
-var isIsomorphic = function(s, t) {
-  var mapS = {}, mapT = {} 
+var isIsomorphic = function (s, t) {
+  var mapS = {}, mapT = {}
   for (var i = 0; i < s.length; i++) {
     var charS = s[i]
     var charT = t[i]

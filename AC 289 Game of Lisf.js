@@ -2,13 +2,13 @@
  * @param {number[][]} board
  * @return {void} Do not return anything, modify board in-place instead.
  */
-var gameOfLife = function(board) {
+var gameOfLife = function (board) {
   if (!board[0] || board[0].length === 0) {
     return
   }
   var tmp = new Array(board.length).fill(undefined).map(function () {
     return new Array(board[0].length)
-  }), offset = [[-1,0],[1,0],[0,1],[0,-1],[1,-1],[-1,1],[1,1],[-1,-1]]
+  }), offset = [[-1, 0], [1, 0], [0, 1], [0, -1], [1, -1], [-1, 1], [1, 1], [-1, -1]]
 
   for (var i = 0; i < board.length; i++) {
     for (var j = 0; j < board[0].length; j++) {
@@ -50,38 +50,38 @@ var test = [[0]]
 gameOfLife(test)
 assert.deepStrictEqual(test, test)
 var test1 = [
-  [0,0,0],
-  [0,1,0],
-  [0,0,0]
+  [0, 0, 0],
+  [0, 1, 0],
+  [0, 0, 0]
 ]
 var res1 = [
-  [0,0,0],
-  [0,0,0],
-  [0,0,0]
+  [0, 0, 0],
+  [0, 0, 0],
+  [0, 0, 0]
 ]
 gameOfLife(test1)
 assert.deepStrictEqual(test1, res1)
 var test2 = [
-  [0,0,0,0],
-  [0,1,1,0],
-  [0,1,1,0],
-  [0,0,0,0]
+  [0, 0, 0, 0],
+  [0, 1, 1, 0],
+  [0, 1, 1, 0],
+  [0, 0, 0, 0]
 ]
 gameOfLife(test2)
 assert.deepStrictEqual(test2, test2)
 var test3 = [
-  [0,0,0,0,0],
-  [0,0,0,0,0],
-  [0,1,1,1,0],
-  [0,0,0,0,0],
-  [0,0,0,0,0]
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0],
+  [0, 1, 1, 1, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0]
 ]
 var res3 = [
-  [0,0,0,0,0],
-  [0,0,1,0,0],
-  [0,0,1,0,0],
-  [0,0,1,0,0],
-  [0,0,0,0,0]
+  [0, 0, 0, 0, 0],
+  [0, 0, 1, 0, 0],
+  [0, 0, 1, 0, 0],
+  [0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 0]
 ]
 gameOfLife(test3)
 assert.deepStrictEqual(test3, res3)
@@ -89,14 +89,14 @@ var test4 = [[]]
 gameOfLife(test4)
 assert.deepStrictEqual(test4, test4)
 var test5 = [
-  [1,1,0],
-  [1,0,0],
-  [0,0,0]
+  [1, 1, 0],
+  [1, 0, 0],
+  [0, 0, 0]
 ]
 var res5 = [
-  [1,1,0],
-  [1,1,0],
-  [0,0,0]
+  [1, 1, 0],
+  [1, 1, 0],
+  [0, 0, 0]
 ]
 gameOfLife(test5)
 assert.deepStrictEqual(test5, test5)

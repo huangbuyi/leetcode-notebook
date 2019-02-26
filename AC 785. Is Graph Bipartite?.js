@@ -10,29 +10,29 @@
  * @return {boolean}
  */
 var isBipartite = function (graph) {
-    var colors = new Array(graph.length)
-    var colorur = function (node, color) {
-        if (colors[node]) {
-            return colors[node] === color
-        }
-
-        colors[node] = color
-        for (var i = 0; i < graph[node].length; i++) {
-            if (!colorur(graph[node][i], color === 1 ? 2 : 1)) {
-                return false
-            }
-        }
-
-        return true
+  var colors = new Array(graph.length)
+  var colorur = function (node, color) {
+    if (colors[node]) {
+      return colors[node] === color
     }
 
-    for (var i = 0; i < graph.length; i++) {
-        if (!colors[i]) {
-            if (!colorur(i)) {
-                return false
-            }
-        }
+    colors[node] = color
+    for (var i = 0; i < graph[node].length; i++) {
+      if (!colorur(graph[node][i], color === 1 ? 2 : 1)) {
+        return false
+      }
     }
 
     return true
+  }
+
+  for (var i = 0; i < graph.length; i++) {
+    if (!colors[i]) {
+      if (!colorur(i)) {
+        return false
+      }
+    }
+  }
+
+  return true
 };

@@ -2,6 +2,6 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-var largestDivisibleSubset = function(nums) {
-    
+var largestDivisibleSubset = function (nums) {
+
 };

@@ -2,8 +2,8 @@
  * @param {string} num
  * @return {boolean}
  */
-var isAdditiveNumber = function(num) {
-    
+var isAdditiveNumber = function (num) {
+
 };
 
 var assert = require('assert')

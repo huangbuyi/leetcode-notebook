@@ -3,7 +3,7 @@
  * @param {string} magazine
  * @return {boolean}
  */
-var canConstruct = function(ransomNote, magazine) {
+var canConstruct = function (ransomNote, magazine) {
   var hash = {}
   for (var i = 0; i < magazine.length; i++) {
     hash[magazine[i]] = (hash[magazine[i]] || 0) + 1

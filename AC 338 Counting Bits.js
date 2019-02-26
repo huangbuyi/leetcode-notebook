@@ -2,7 +2,7 @@
  * @param {number} num
  * @return {number[]}
  */
-var countBits = function(num) {
+var countBits = function (num) {
   var i = 0, n = 1, res = [0]
   while (i + n <= num) {
     res[i + n] = res[i] + 1
@@ -48,6 +48,6 @@ public int[] countBits(int num) {
 
 var assert = require('assert')
 assert.deepStrictEqual(countBits(0), [0])
-assert.deepStrictEqual(countBits(1), [0,1])
-assert.deepStrictEqual(countBits(2), [0,1,1])
-assert.deepStrictEqual(countBits(10), [0,1,1,2,1,2,2,3,1,2,2])
+assert.deepStrictEqual(countBits(1), [0, 1])
+assert.deepStrictEqual(countBits(2), [0, 1, 1])
+assert.deepStrictEqual(countBits(10), [0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2])

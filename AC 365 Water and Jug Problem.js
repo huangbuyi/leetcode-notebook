@@ -4,8 +4,8 @@
  * @param {number} z
  * @return {boolean}
  */
-var canMeasureWater = function(x, y, z) {
-  if ( x + y + z === 0) return true
+var canMeasureWater = function (x, y, z) {
+  if (x + y + z === 0) return true
   if (x + y < z) return false
   var t
   if (x > y) {
@@ -66,21 +66,21 @@ even even odd X
 */
 
 var assert = require('assert')
-assert.equal(canMeasureWater(0,0,0), true)
-assert.equal(canMeasureWater(0,0,1), false)
-assert.equal(canMeasureWater(0,1,1), true)
-assert.equal(canMeasureWater(1,0,1), true)
-assert.equal(canMeasureWater(1,1,1), true)
-assert.equal(canMeasureWater(0,1,2), false)
-assert.equal(canMeasureWater(1,1,3), false)
-assert.equal(canMeasureWater(150,150,1), false)
-assert.equal(canMeasureWater(3,5,4), true)
-assert.equal(canMeasureWater(2,6,5), false)
-assert.equal(canMeasureWater(6,9,1), false)
-assert.equal(canMeasureWater(6,9,6), true)
-assert.equal(canMeasureWater(6,6,6), true)
-assert.equal(canMeasureWater(6,6,5), false)
-assert.equal(canMeasureWater(123,1,5), true)
-assert.equal(canMeasureWater(101,20,2), true)
+assert.equal(canMeasureWater(0, 0, 0), true)
+assert.equal(canMeasureWater(0, 0, 1), false)
+assert.equal(canMeasureWater(0, 1, 1), true)
+assert.equal(canMeasureWater(1, 0, 1), true)
+assert.equal(canMeasureWater(1, 1, 1), true)
+assert.equal(canMeasureWater(0, 1, 2), false)
+assert.equal(canMeasureWater(1, 1, 3), false)
+assert.equal(canMeasureWater(150, 150, 1), false)
+assert.equal(canMeasureWater(3, 5, 4), true)
+assert.equal(canMeasureWater(2, 6, 5), false)
+assert.equal(canMeasureWater(6, 9, 1), false)
+assert.equal(canMeasureWater(6, 9, 6), true)
+assert.equal(canMeasureWater(6, 6, 6), true)
+assert.equal(canMeasureWater(6, 6, 5), false)
+assert.equal(canMeasureWater(123, 1, 5), true)
+assert.equal(canMeasureWater(101, 20, 2), true)
 
 

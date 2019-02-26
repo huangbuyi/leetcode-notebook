@@ -3,7 +3,7 @@
  * @param {number} m
  * @return {number}
  */
-var splitArray = function(nums, m) {
-    
+var splitArray = function (nums, m) {
+
 };
 

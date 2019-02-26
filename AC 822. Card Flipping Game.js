@@ -7,22 +7,22 @@
  * @param {number[]} backs
  * @return {number}
  */
-var flipgame = function(fronts, backs) {
+var flipgame = function (fronts, backs) {
   var map = {}, min = Infinity
   for (var i = 0; i < fronts.length; i++) {
-      if (fronts[i] === backs[i]) {
-          map[fronts[i]] = true
-      }
+    if (fronts[i] === backs[i]) {
+      map[fronts[i]] = true
+    }
   }
-  
+
   for (var i = 0; i < fronts.length; i++) {
-      if (!map[fronts[i]]) {
-          min = Math.min(fronts[i], min)
-      }
-      if (!map[backs[i]]) {
-          min = Math.min(backs[i], min)
-      }
+    if (!map[fronts[i]]) {
+      min = Math.min(fronts[i], min)
+    }
+    if (!map[backs[i]]) {
+      min = Math.min(backs[i], min)
+    }
   }
-  
+
   return min < Infinity ? min : 0
 };

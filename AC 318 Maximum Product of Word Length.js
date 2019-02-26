@@ -4,24 +4,24 @@
  */
 var isShare = function (word1, word2) {
   for (var i = 0; i < word1.length; i++) {
-      if (word2.indexOf(word1[i]) > -1) {
-          return true
-      }
+    if (word2.indexOf(word1[i]) > -1) {
+      return true
+    }
   }
   return false
 }
 
-var maxProduct = function(words) {
+var maxProduct = function (words) {
   var max = 0
-  
+
   for (var i = 0; i < words.length; i++) {
-      for (var j = i + 1; j < words.length; j++) {
-          if (!isShare(words[i], words[j])) {
-              max = Math.max(max, words[i].length * words[j].length)
-          }
+    for (var j = i + 1; j < words.length; j++) {
+      if (!isShare(words[i], words[j])) {
+        max = Math.max(max, words[i].length * words[j].length)
       }
+    }
   }
-  
+
   return max
 };
 

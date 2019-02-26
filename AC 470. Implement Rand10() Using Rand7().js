@@ -9,13 +9,13 @@
  * var rand7 = function() {}
  * @return {number} a random integer in the range 1 to 7
  */
-var rand10 = function() {
+var rand10 = function () {
   var a = 7, b = 7
   while (a === 7) {
-      a = rand7()
+    a = rand7()
   }
-  while (b > 5 ) {
-      b = rand7()
+  while (b > 5) {
+    b = rand7()
   }
   return b + (a < 4 ? 5 : 0)
 };

@@ -2,7 +2,7 @@
  * @param {number} n
  * @return {number}
  */
-var integerBreak = function(n) {
+var integerBreak = function (n) {
   if (n === 2) return 1
   if (n === 3) return 2
   return Math.pow(3, Math.floor(n / 3)) * [1, 4 / 3, 2][n % 3]

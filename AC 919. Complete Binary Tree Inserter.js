@@ -26,13 +26,13 @@ insert 时间复杂度 O(logN)，Init 时间复杂度 O(N)，空间复杂度 O(1
 /**
  * @param {TreeNode} root
  */
-var CBTInserter = function(root) {
+var CBTInserter = function (root) {
   this.length = 0
   this.init(root)
   this.root = root
 };
 
-CBTInserter.prototype.init = function(node) {
+CBTInserter.prototype.init = function (node) {
   if (!node) return
   this.length++
   this.init(node.left)
@@ -40,12 +40,12 @@ CBTInserter.prototype.init = function(node) {
 }
 
 
-CBTInserter.prototype.reverseBits = function(n) {
+CBTInserter.prototype.reverseBits = function (n) {
   var res = 0
   while (n > 0) {
-      res <<= 1
-      res += n & 1
-      n >>= 1
+    res <<= 1
+    res += n & 1
+    n >>= 1
   }
   return res
 };
@@ -54,7 +54,7 @@ CBTInserter.prototype.reverseBits = function(n) {
 * @param {number} v
 * @return {number}
 */
-CBTInserter.prototype.insert = function(v) {
+CBTInserter.prototype.insert = function (v) {
   var length = ++this.length
   var root = this.root
   var node = new TreeNode(v)
@@ -62,8 +62,8 @@ CBTInserter.prototype.insert = function(v) {
   var bits = this.reverseBits(length)
   var curr = this.root
   while (curr.left && curr.right) {
-      bits >>= 1
-      curr = (bits & 1) ? curr.right : curr.left
+    bits >>= 1
+    curr = (bits & 1) ? curr.right : curr.left
   }
   if (!curr.left) curr.left = node
   else curr.right = node
@@ -73,11 +73,11 @@ CBTInserter.prototype.insert = function(v) {
 /**
 * @return {TreeNode}
 */
-CBTInserter.prototype.get_root = function() {
+CBTInserter.prototype.get_root = function () {
   return this.root
 };
 
-/** 
+/**
 * Your CBTInserter object will be instantiated and called as such:
 * var obj = Object.create(CBTInserter).createNew(root)
 * var param_1 = obj.insert(v)

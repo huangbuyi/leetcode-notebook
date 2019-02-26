@@ -7,22 +7,22 @@
  * @param {number[]} nums
  * @return {number}
  */
-var findShortestSubArray = function(nums) {
+var findShortestSubArray = function (nums) {
   var max = 0, map = {}, smallestLength = nums.length
-  
+
   for (var i = 0; i < nums.length; i++) {
-      var num = nums[i]
-      if (!map[num]) {
-          map[num] = [0, i]
-      }
-      
-      if (++map[num][0] > max) {
-          max = map[num][0]
-          smallestLength = i - map[num][1]
-      } else if (map[num][0] === max) {
-          smallestLength = Math.min(i - map[num][1], smallestLength)
-      }
+    var num = nums[i]
+    if (!map[num]) {
+      map[num] = [0, i]
+    }
+
+    if (++map[num][0] > max) {
+      max = map[num][0]
+      smallestLength = i - map[num][1]
+    } else if (map[num][0] === max) {
+      smallestLength = Math.min(i - map[num][1], smallestLength)
+    }
   }
-  
+
   return smallestLength + 1
 };

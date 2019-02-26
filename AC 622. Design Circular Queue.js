@@ -9,7 +9,7 @@
  * Initialize your data structure here. Set the size of the queue to be k.
  * @param {number} k
  */
-var MyCircularQueue = function(k) {
+var MyCircularQueue = function (k) {
   this.data = new Array(k)
   this.s = 0
   this.e = k - 1
@@ -21,7 +21,7 @@ var MyCircularQueue = function(k) {
 * @param {number} value
 * @return {boolean}
 */
-MyCircularQueue.prototype.enQueue = function(value) {
+MyCircularQueue.prototype.enQueue = function (value) {
   if (this.isFull()) return false
   this.e++
   if (this.e >= this.k) this.e = 0
@@ -33,7 +33,7 @@ MyCircularQueue.prototype.enQueue = function(value) {
 * Delete an element from the circular queue. Return true if the operation is successful.
 * @return {boolean}
 */
-MyCircularQueue.prototype.deQueue = function() {
+MyCircularQueue.prototype.deQueue = function () {
   if (this.isEmpty()) return false
   this.data[this.s] = undefined
   this.s++
@@ -45,7 +45,7 @@ MyCircularQueue.prototype.deQueue = function() {
 * Get the front item from the queue.
 * @return {number}
 */
-MyCircularQueue.prototype.Front = function() {
+MyCircularQueue.prototype.Front = function () {
   if (this.isEmpty()) return -1
   return this.data[this.s]
 };
@@ -54,7 +54,7 @@ MyCircularQueue.prototype.Front = function() {
 * Get the last item from the queue.
 * @return {number}
 */
-MyCircularQueue.prototype.Rear = function() {
+MyCircularQueue.prototype.Rear = function () {
   if (this.isEmpty()) return -1
   return this.data[this.e]
 };
@@ -63,7 +63,7 @@ MyCircularQueue.prototype.Rear = function() {
 * Checks whether the circular queue is empty or not.
 * @return {boolean}
 */
-MyCircularQueue.prototype.isEmpty = function() {
+MyCircularQueue.prototype.isEmpty = function () {
   return this.data[this.s] === undefined
 };
 
@@ -71,11 +71,11 @@ MyCircularQueue.prototype.isEmpty = function() {
 * Checks whether the circular queue is full or not.
 * @return {boolean}
 */
-MyCircularQueue.prototype.isFull = function() {
+MyCircularQueue.prototype.isFull = function () {
   return !this.isEmpty() && (this.s - this.e === 1 || this.e - this.s === this.k - 1)
 };
 
-/** 
+/**
 * Your MyCircularQueue object will be instantiated and called as such:
 * var obj = Object.create(MyCircularQueue).createNew(k)
 * var param_1 = obj.enQueue(value)

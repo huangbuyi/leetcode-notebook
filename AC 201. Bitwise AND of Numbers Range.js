@@ -11,7 +11,7 @@ diff > 3 时，必然存在 XXX0X XXXX1X，第二位必为0
  * @param {number} n
  * @return {number}
  */
-var rangeBitwiseAnd = function(m, n) {
+var rangeBitwiseAnd = function (m, n) {
   var diff = n - m, count = 0
   while (diff > 0) {
     count++

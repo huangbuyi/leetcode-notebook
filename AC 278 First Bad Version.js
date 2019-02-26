@@ -12,22 +12,22 @@
  * @param {function} isBadVersion()
  * @return {function}
  */
-var solution = function(isBadVersion) {
+var solution = function (isBadVersion) {
   /**
    * @param {integer} n Total versions
    * @return {integer} The first bad version
    */
-  return function(n) {
-      var lh = 0, rh = n, md
-      while (lh < rh) {
-          md = Math.floor((lh + rh) / 2)
-          if (isBadVersion(md)) {
-              rh = md
-          } else {
-              lh = md + 1
-          }
+  return function (n) {
+    var lh = 0, rh = n, md
+    while (lh < rh) {
+      md = Math.floor((lh + rh) / 2)
+      if (isBadVersion(md)) {
+        rh = md
+      } else {
+        lh = md + 1
       }
-      return lh
+    }
+    return lh
   };
 };
 

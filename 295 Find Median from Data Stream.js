@@ -1,7 +1,7 @@
 /**
  * initialize your data structure here.
  */
-var MedianFinder = function() {
+var MedianFinder = function () {
   this.sorted = []
 };
 
@@ -9,28 +9,28 @@ var MedianFinder = function() {
  * @param {number} num
  * @return {void}
  */
-MedianFinder.prototype.addNum = function(num) {
-    var sorted = this.sorted, left = 0, right = sorted.length - 1, middle = -1
-    while (left <= right) {
-      middle = Math.floor((left + right) / 2)
-      if (num >= sorted[middle] && num <= sorted[middle + 1]) {
-        break
-      }
-      
-      if (num < sorted[middle]) {
-        right = middle - 1
-      } else {
-        left = middle + 1
-      }
+MedianFinder.prototype.addNum = function (num) {
+  var sorted = this.sorted, left = 0, right = sorted.length - 1, middle = -1
+  while (left <= right) {
+    middle = Math.floor((left + right) / 2)
+    if (num >= sorted[middle] && num <= sorted[middle + 1]) {
+      break
     }
-    console.log(sorted)
-    sorted.splice(middle + 1, 0, num)
+
+    if (num < sorted[middle]) {
+      right = middle - 1
+    } else {
+      left = middle + 1
+    }
+  }
+  console.log(sorted)
+  sorted.splice(middle + 1, 0, num)
 };
 
 /**
  * @return {number}
  */
-MedianFinder.prototype.findMedian = function() {
+MedianFinder.prototype.findMedian = function () {
   var sorted = this.sorted, halfLen = sorted.length / 2 >> 0
   return sorted.length % 2 === 0 ? (sorted[halfLen] + sorted[halfLen - 1]) / 2 : sorted[halfLen]
 };

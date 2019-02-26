@@ -7,20 +7,20 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-var nextGreaterElements = function(nums) {
+var nextGreaterElements = function (nums) {
   var stack = [], res = new Array(nums.length).fill(-1)
   for (var i = 0; i < nums.length; i++) {
-      while (stack.length > 0 && nums[i] > nums[stack[stack.length - 1]]) {
-          res[stack.pop()] = nums[i]
-      }
-      stack.push(i)
+    while (stack.length > 0 && nums[i] > nums[stack[stack.length - 1]]) {
+      res[stack.pop()] = nums[i]
+    }
+    stack.push(i)
   }
-  
+
   for (var i = 0; i < nums.length && stack.length > 0; i++) {
-      while (nums[i] > nums[stack[stack.length - 1]]) {
-          res[stack.pop()] = nums[i]
-      }
+    while (nums[i] > nums[stack[stack.length - 1]]) {
+      res[stack.pop()] = nums[i]
+    }
   }
-  
+
   return res
 };

@@ -10,20 +10,20 @@ dp[k + 1] = min(pairs[i][1], dp[k + 1])，当 pairs[i][0] > dp[k]
  * @param {number[][]} pairs
  * @return {number}
  */
-var findLongestChain = function(pairs) {
+var findLongestChain = function (pairs) {
   var dp = [Infinity]
-  pairs.sort(function(a, b) {
-      return a[1] - b[1]
+  pairs.sort(function (a, b) {
+    return a[1] - b[1]
   })
-  
+
   for (var i = 0; i < pairs.length; i++) {
-      var j = 0, length = dp.length
-      while (pairs[i][0] > dp[j]) {
-          dp[j + 1] = j + 1 === length ? pairs[i][1] : Math.min(pairs[i][1], dp[j + 1])
-          j++
-      }
-      dp[0] = Math.min(pairs[i][1], dp[0])
+    var j = 0, length = dp.length
+    while (pairs[i][0] > dp[j]) {
+      dp[j + 1] = j + 1 === length ? pairs[i][1] : Math.min(pairs[i][1], dp[j + 1])
+      j++
+    }
+    dp[0] = Math.min(pairs[i][1], dp[0])
   }
-  
+
   return dp.length
 };

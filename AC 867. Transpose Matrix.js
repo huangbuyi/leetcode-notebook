@@ -2,7 +2,7 @@
  * @param {number[][]} A
  * @return {number[][]}
  */
-var transpose = function(A) {
+var transpose = function (A) {
   var res = new Array(A[0].length).fill(undefined).map(function () {
     return new Array(A.length)
   })

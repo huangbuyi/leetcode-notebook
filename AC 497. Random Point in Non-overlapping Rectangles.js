@@ -8,7 +8,7 @@
 /**
  * @param {number[][]} rects
  */
-var Solution = function(rects) {
+var Solution = function (rects) {
   var sum = 0
   this.rects = new Array(rects.length)
   for (var i = 0; i < rects.length; i++) {
@@ -21,15 +21,15 @@ var Solution = function(rects) {
 /**
  * @return {number[]}
  */
-Solution.prototype.pick = function() {
-    var random = Math.random() * this.rects[this.rects.length - 1][0]
-    var r = this.rects[binarySearch(random, this.rects)][1]
-    var x = r[0] + Math.floor(Math.random() * (r[2] - r[0] + 1))
-    var y = r[1] + Math.floor(Math.random() * (r[3] - r[1] + 1))
-    return [x, y]
+Solution.prototype.pick = function () {
+  var random = Math.random() * this.rects[this.rects.length - 1][0]
+  var r = this.rects[binarySearch(random, this.rects)][1]
+  var x = r[0] + Math.floor(Math.random() * (r[2] - r[0] + 1))
+  var y = r[1] + Math.floor(Math.random() * (r[3] - r[1] + 1))
+  return [x, y]
 };
 
-var binarySearch = function(val, arr) {
+var binarySearch = function (val, arr) {
   var i = 0, j = arr.length - 1
   while (i <= j) {
     var m = Math.floor((i + j) / 2)
@@ -39,7 +39,7 @@ var binarySearch = function(val, arr) {
   return i
 }
 
-/** 
+/**
  * Your Solution object will be instantiated and called as such:
  * var obj = Object.create(Solution).createNew(rects)
  * var param_1 = obj.pick()

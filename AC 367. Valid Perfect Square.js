@@ -2,7 +2,7 @@
  * @param {number} num
  * @return {boolean}
  */
-var isPerfectSquare = function(num) {
+var isPerfectSquare = function (num) {
   var curr = 0, next = 100
 
   while (curr !== next) {

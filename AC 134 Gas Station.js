@@ -3,21 +3,21 @@
  * @param {number[]} cost
  * @return {number}
  */
-var canCompleteCircuit = function(gas, cost) {
-    var gasSum = 0, costSum = 0, surplus = 0, startIndex = 0
+var canCompleteCircuit = function (gas, cost) {
+  var gasSum = 0, costSum = 0, surplus = 0, startIndex = 0
 
-    gas.map(function (ga, i) {
-      gasSum += ga
-      costSum += cost[i]
-      surplus += ga - cost[i]
-      if (gasSum < costSum) {
-        gasSum = 0
-        costSum = 0
-        startIndex = i + 1
-      }
-    })
+  gas.map(function (ga, i) {
+    gasSum += ga
+    costSum += cost[i]
+    surplus += ga - cost[i]
+    if (gasSum < costSum) {
+      gasSum = 0
+      costSum = 0
+      startIndex = i + 1
+    }
+  })
 
-    return startIndex >= gas.length || surplus < 0 ? -1 : startIndex
+  return startIndex >= gas.length || surplus < 0 ? -1 : startIndex
 };
 
 /* 
@@ -28,8 +28,8 @@ var canCompleteCircuit = function(gas, cost) {
 
 var assert = require('assert')
 
-assert.equal(canCompleteCircuit([1,1,6,1,1], [2,2,2,2,2]), 2)
-assert.equal(canCompleteCircuit([1,1,6,1,1], [2,3,2,2,2]), -1)
+assert.equal(canCompleteCircuit([1, 1, 6, 1, 1], [2, 2, 2, 2, 2]), 2)
+assert.equal(canCompleteCircuit([1, 1, 6, 1, 1], [2, 3, 2, 2, 2]), -1)
 assert.equal(canCompleteCircuit([2], [1]), 0)
 assert.equal(canCompleteCircuit([2], [3]), -1)
 assert.equal(canCompleteCircuit([], []), -1)

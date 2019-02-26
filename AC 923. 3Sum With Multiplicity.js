@@ -13,28 +13,28 @@
  * @param {number} target
  * @return {number}
  */
-var threeSumMulti = function(A, target) {
+var threeSumMulti = function (A, target) {
   var counts = new Array(101).fill(0), res = 0, mod = 1e9 + 7, i, j, k
   for (var i = 0; i < A.length; i++) {
-      counts[A[i]]++
+    counts[A[i]]++
   }
-  
+
   for (i = 0; 2 * i <= target && i <= 100; i++) {
-      k = target - 2 * i
-      if (counts[i] === 0) continue
-      if (k <= 100) {
-          if (k !== i) res += counts[i] * (counts[i] - 1) * counts[k] / 2
-          else res += counts[i] * (counts[i] - 1) * (counts[i] - 2) / 6
-          res %= mod
-      }
-      
-      for (j = i + 1; 2 * j + i < target && j <= 100; j++) {
-          k = target - i - j
-          if (counts[j] === 0 || k > 100) continue
-          
-          res = (res + counts[i] * counts[j] * counts[k]) % mod
-      }
+    k = target - 2 * i
+    if (counts[i] === 0) continue
+    if (k <= 100) {
+      if (k !== i) res += counts[i] * (counts[i] - 1) * counts[k] / 2
+      else res += counts[i] * (counts[i] - 1) * (counts[i] - 2) / 6
+      res %= mod
+    }
+
+    for (j = i + 1; 2 * j + i < target && j <= 100; j++) {
+      k = target - i - j
+      if (counts[j] === 0 || k > 100) continue
+
+      res = (res + counts[i] * counts[j] * counts[k]) % mod
+    }
   }
-  
+
   return res
 };

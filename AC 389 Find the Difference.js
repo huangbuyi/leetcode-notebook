@@ -3,7 +3,7 @@
  * @param {string} t
  * @return {character}
  */
-var findTheDifference = function(s, t) {
+var findTheDifference = function (s, t) {
   var tmp = 0
   for (var i = 0; i < s.length; i++) {
     tmp ^= s[i].charCodeAt()

@@ -1,7 +1,7 @@
 /**
  * Initialize your data structure here.
  */
-var MyQueue = function() {
+var MyQueue = function () {
   this.input = []
   this.output = []
 };
@@ -11,7 +11,7 @@ var MyQueue = function() {
 * @param {number} x
 * @return {void}
 */
-MyQueue.prototype.push = function(x) {
+MyQueue.prototype.push = function (x) {
   this.input.push(x)
 };
 
@@ -19,7 +19,7 @@ MyQueue.prototype.push = function(x) {
 * Removes the element from in front of queue and returns that element.
 * @return {number}
 */
-MyQueue.prototype.pop = function() {
+MyQueue.prototype.pop = function () {
   this.peek()
   return this.output.pop()
 };
@@ -28,11 +28,11 @@ MyQueue.prototype.pop = function() {
 * Get the front element.
 * @return {number}
 */
-MyQueue.prototype.peek = function() {
+MyQueue.prototype.peek = function () {
   if (!this.output.length) {
-      while (this.input.length) {
-          this.output.push(this.input.pop())
-      }
+    while (this.input.length) {
+      this.output.push(this.input.pop())
+    }
   }
   return this.output[this.output.length - 1]
 };
@@ -41,7 +41,7 @@ MyQueue.prototype.peek = function() {
 * Returns whether the queue is empty.
 * @return {boolean}
 */
-MyQueue.prototype.empty = function() {
+MyQueue.prototype.empty = function () {
   return !(this.input.length || this.output.length)
 };
 

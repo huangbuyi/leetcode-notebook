@@ -7,18 +7,18 @@
  * @param {number[]} nums
  * @return {number}
  */
-var arrayNesting = function(nums) {
+var arrayNesting = function (nums) {
   var visited = new Array(nums.length), max = 0
-  
+
   for (var i = 0; i < nums.length; i++) {
-      var p = i, count = 0
-      while (!visited[p]) {
-          visited[p] = true
-          p = nums[p]
-          count++
-      }
-      max = Math.max(count, max)
+    var p = i, count = 0
+    while (!visited[p]) {
+      visited[p] = true
+      p = nums[p]
+      count++
+    }
+    max = Math.max(count, max)
   }
-  
+
   return max
 };

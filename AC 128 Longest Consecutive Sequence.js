@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var longestConsecutive = function(nums) {
+var longestConsecutive = function (nums) {
   var hashMap = {}, max = 0, left, right, sum
   nums.map(function (num) {
     if (hashMap[num]) {

@@ -22,60 +22,60 @@ c@z.com --- d@z.com
  * @param {string[][]} accounts
  * @return {string[][]}
  */
-var accountsMerge = function(accounts) {
+var accountsMerge = function (accounts) {
   var map = {}
   accounts = accounts.filter(a => a.length > 1)
   for (var i = 0; i < accounts.length; i++) {
-      for (var j = 1; j < accounts[i].length; j++) {
-          var mail = accounts[i][j]
-          if (!map[mail]) map[mail] = []
-          map[mail].push(i)
-      }
+    for (var j = 1; j < accounts[i].length; j++) {
+      var mail = accounts[i][j]
+      if (!map[mail]) map[mail] = []
+      map[mail].push(i)
+    }
   }
-  
+
   var nerbs = new Array(accounts.length)
   for (var i = 0; i < accounts.length; i++) {
-      nerbs[i] = new Set()
-      for (var j = 1; j < accounts[i].length; j++) {
-          for (var k = 0; k < map[accounts[i][j]].length; k++) {
-              var nerb = map[accounts[i][j]][k]
-              if (i !== nerb) nerbs[i].add(nerb)
-          }
+    nerbs[i] = new Set()
+    for (var j = 1; j < accounts[i].length; j++) {
+      for (var k = 0; k < map[accounts[i][j]].length; k++) {
+        var nerb = map[accounts[i][j]][k]
+        if (i !== nerb) nerbs[i].add(nerb)
       }
+    }
   }
-  
+
   var visited = new Array(accounts.length), visited = {}, res = []
   for (var i = 0; i < nerbs.length; i++) {
-      if (!visited[i]) {
-          var r = []
-          help(i, nerbs, visited, r)
-          res.push(r)
-      }
+    if (!visited[i]) {
+      var r = []
+      help(i, nerbs, visited, r)
+      res.push(r)
+    }
   }
-  
+
   for (var i = 0; i < res.length; i++) {
-      res[i] = merge(res[i], accounts)
+    res[i] = merge(res[i], accounts)
   }
-  
+
   return res
 };
 
-var help = function(i, nerbs, visited, res) {
+var help = function (i, nerbs, visited, res) {
   res.push(i)
   visited[i] = true
   nerbs[i].forEach(k => {
-      if (!visited[k]) help(k, nerbs, visited, res)
+    if (!visited[k]) help(k, nerbs, visited, res)
   })
 }
 
-var merge = function(targets, accounts) {
+var merge = function (targets, accounts) {
   var res = [accounts[targets[0]][0]]
   var mails = new Set()
   for (var i = 0; i < targets.length; i++) {
-      var t = targets[i]
-      for (var j = 1; j < accounts[t].length; j++) {
-          mails.add(accounts[t][j])
-      }
+    var t = targets[i]
+    for (var j = 1; j < accounts[t].length; j++) {
+      mails.add(accounts[t][j])
+    }
   }
   return res.concat(Array.from(mails).sort())
 }

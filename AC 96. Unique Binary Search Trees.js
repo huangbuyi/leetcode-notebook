@@ -9,13 +9,13 @@ n 节点树左子树有 i 个节点，左子树就有 dp[i] 种，右子树就�
  * @param {number} n
  * @return {number}
  */
-var numTrees = function(n) {
+var numTrees = function (n) {
   var dp = new Array(n + 1).fill(0)
   dp[0] = 1
   for (var i = 1; i <= n; i++) {
-      for (var j = 0; j < i ; j++) {
-          dp[i] += dp[j] * dp[i - 1 - j]
-      }
+    for (var j = 0; j < i; j++) {
+      dp[i] += dp[j] * dp[i - 1 - j]
+    }
   }
   return dp[n]
 };

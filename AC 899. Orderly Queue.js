@@ -9,25 +9,25 @@
  * @param {number} K
  * @return {string}
  */
-var orderlyQueue = function(S, K) {
+var orderlyQueue = function (S, K) {
   if (K === 1) {
-      var minIndex = 0
-      for (var i = 1; i < S.length; i++) {
-          var c1 = S[i].charCodeAt(0)
-          var c2 = S[minIndex].charCodeAt(0)
-          var j = 1
-          while (c1 === c2 && j < S.length) {
-              c1 = S[(i + j) % S.length].charCodeAt(0)
-              c2 = S[(minIndex + j) % S.length].charCodeAt(0)
-              j++
-          }
-          if (c1 < c2) {
-              minIndex = i
-          }
+    var minIndex = 0
+    for (var i = 1; i < S.length; i++) {
+      var c1 = S[i].charCodeAt(0)
+      var c2 = S[minIndex].charCodeAt(0)
+      var j = 1
+      while (c1 === c2 && j < S.length) {
+        c1 = S[(i + j) % S.length].charCodeAt(0)
+        c2 = S[(minIndex + j) % S.length].charCodeAt(0)
+        j++
       }
+      if (c1 < c2) {
+        minIndex = i
+      }
+    }
 
-      return S.substring(minIndex) + S.substring(0, minIndex)
+    return S.substring(minIndex) + S.substring(0, minIndex)
   }
-  
+
   return S.split('').sort().join('')
 }; 

@@ -12,19 +12,19 @@ aaaaaaaaaaabaaaaaaaaa
  * @return {string}
  */
 
-var shortestPalindrome = function(s) {
+var shortestPalindrome = function (s) {
   var i = 0, j = s.length - 1, map = {}
-  
+
   while (i < j) {
-      if (s[i] === s[j]) {
-          map[s[i]] = i
-          i++
-          j--
-      } else {
-          j = map[s[j]] >= 0 ? j + map[s[j]] : j - 1
-          i = 0
-          map = {}
-      }
+    if (s[i] === s[j]) {
+      map[s[i]] = i
+      i++
+      j--
+    } else {
+      j = map[s[j]] >= 0 ? j + map[s[j]] : j - 1
+      i = 0
+      map = {}
+    }
   }
 
   return s.substr(i + j + 1).split('').reverse().join('') + s

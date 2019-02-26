@@ -13,7 +13,7 @@
  * @param {TreeNode} root
  * @return {string}
  */
-var smallestFromLeaf = function(root) {
+var smallestFromLeaf = function (root) {
   if (!root) return ''
   var char = String.fromCharCode(97 + root.val)
   var left = smallestFromLeaf(root.left)

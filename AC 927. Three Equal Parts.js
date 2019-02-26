@@ -10,31 +10,31 @@
  * @param {number[]} A
  * @return {number[]}
  */
-var threeEqualParts = function(A) {
+var threeEqualParts = function (A) {
   var sum = 0
-  
+
   for (var i = 0; i < A.length; i++) {
-      sum += A[i]
+    sum += A[i]
   }
-  
+
   if (sum % 3 !== 0) return [-1, -1]
   if (sum === 0) return [0, A.length - 1]
-  
+
   var tsum = 0, p0, p1, p2
   for (var i = 0; i < A.length; i++) {
-      tsum += A[i]
-      if (A[i] === 1) {
-          if (tsum === 1) p0 = i
-          if (tsum === sum / 3 + 1) p1 = i
-          if (tsum === 2 * sum / 3 + 1) p2 = i
-      }
+    tsum += A[i]
+    if (A[i] === 1) {
+      if (tsum === 1) p0 = i
+      if (tsum === sum / 3 + 1) p1 = i
+      if (tsum === 2 * sum / 3 + 1) p2 = i
+    }
 
   }
-  
+
   var len = A.length - p2
   for (var i = 0; i < len; i++) {
-      if (A[p0 + i] !== A[p1 + i] || A[p1 + i] !== A[p2 + i]) return [-1, -1]
+    if (A[p0 + i] !== A[p1 + i] || A[p1 + i] !== A[p2 + i]) return [-1, -1]
   }
-  
+
   return [p0 + len - 1, p1 + len]
 };

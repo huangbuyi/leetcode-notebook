@@ -25,27 +25,27 @@ k + x - nr = x - a
  * @param {ListNode} head
  * @return {ListNode}
  */
-var detectCycle = function(head) {
+var detectCycle = function (head) {
   if (!head) {
-      return null
+    return null
   }
   var slow = head
   var fast = head.next
-  
+
   while (slow !== fast) {
-      if (!fast || !fast.next) {
-          return null
-      }
-      slow = slow.next
-      fast = fast.next.next
+    if (!fast || !fast.next) {
+      return null
+    }
+    slow = slow.next
+    fast = fast.next.next
   }
-  
+
   fast = head
   slow = slow.next
   while (slow !== fast) {
-      slow = slow.next
-      fast = fast.next
+    slow = slow.next
+    fast = fast.next
   }
-  
+
   return slow
 };
