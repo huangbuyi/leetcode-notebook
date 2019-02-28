@@ -1,3 +1,21 @@
+/* 
+一个 following 表，保存关注关系：
+{ 
+  userId: [followeeId1, followeeId2, ...]
+}
+一个 tweets 表，保存用户推文：
+{
+  userId: [tweet1, tweet2, ....]
+}
+tweet 实例：
+{
+  id,
+  time
+}
+每次请求资讯时，查找每个关注者和自己的最新消息。这种方式实现起来比较简单。
+还有一种推送方式，用户每发布一篇文章，就推送给订阅者，这样用户在获取推文速度更快，但实现起来复杂。
+*/
+
 /**
  * Initialize your data structure here.
  */
@@ -16,7 +34,7 @@ var Twitter = function() {
 Twitter.prototype.postTweet = function(userId, tweetId) {
   var t = this.tweets
   if (!t[userId]) t[userId] = []
-  t[userId].push({
+  t[userId].unshift({
     id: tweetId,
     time: this.time++
   })
@@ -38,9 +56,6 @@ Twitter.prototype.getNewsFeed = function(userId) {
       }
     }
   }
-  console.log(tweets)
-  // console.log(news)
-  // console.log(news.sort((t1, t2) => t2.time - t1.time))
   return news.sort((t1, t2) => t2.time - t1.time).map(t => t.id).slice(0, 10)
 };
 
